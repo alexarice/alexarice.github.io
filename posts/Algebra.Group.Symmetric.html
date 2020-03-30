@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Algebra.Group.Symmetric</title><link rel="stylesheet" href="/home/alex/homepage/src/css/Agda.css"></head><body><pre class="Agda"><a id="1" class="Symbol">{-#</a> <a id="5" class="Keyword">OPTIONS</a> <a id="13" class="Pragma">--without-K</a> <a id="25" class="Pragma">--safe</a> <a id="32" class="Symbol">#-}</a>
+
+<a id="37" class="Keyword">open</a> <a id="42" class="Keyword">import</a> <a id="49" href="Algebra.Bundles.html" class="Module">Algebra.Bundles</a> <a id="65" class="Keyword">using</a> <a id="71" class="Symbol">(</a><a id="72" href="Algebra.Bundles.html#6392" class="Record">Group</a><a id="77" class="Symbol">)</a>
+
+<a id="80" class="Keyword">module</a> <a id="87" href="Algebra.Group.Symmetric.html" class="Module">Algebra.Group.Symmetric</a> <a id="111" class="Symbol">{</a><a id="112" href="Algebra.Group.Symmetric.html#112" class="Bound">g₁</a> <a id="115" href="Algebra.Group.Symmetric.html#115" class="Bound">g₂</a><a id="117" class="Symbol">}</a> <a id="119" class="Symbol">(</a><a id="120" href="Algebra.Group.Symmetric.html#120" class="Bound">𝓖</a> <a id="122" class="Symbol">:</a> <a id="124" href="Algebra.Bundles.html#6392" class="Record">Group</a> <a id="130" href="Algebra.Group.Symmetric.html#112" class="Bound">g₁</a> <a id="133" href="Algebra.Group.Symmetric.html#115" class="Bound">g₂</a><a id="135" class="Symbol">)</a> <a id="137" class="Keyword">where</a>
+
+<a id="144" class="Keyword">open</a> <a id="149" href="Algebra.Bundles.html#6392" class="Module">Group</a> <a id="155" href="Algebra.Group.Symmetric.html#120" class="Bound">𝓖</a>
+
+<a id="158" class="Keyword">open</a> <a id="163" class="Keyword">import</a> <a id="170" href="Algebra.html" class="Module">Algebra</a> <a id="178" class="Keyword">using</a> <a id="184" class="Symbol">(</a><a id="185" href="Algebra.Core.html#518" class="Function">Op₂</a><a id="188" class="Symbol">;</a> <a id="190" href="Algebra.Core.html#475" class="Function">Op₁</a><a id="193" class="Symbol">)</a>
+<a id="195" class="Keyword">open</a> <a id="200" class="Keyword">import</a> <a id="207" href="Function.Inverse.html" class="Module">Function.Inverse</a> <a id="224" class="Keyword">renaming</a> <a id="233" class="Symbol">(</a><a id="234" href="Function.Inverse.html#4279" class="Function">sym</a> <a id="238" class="Symbol">to</a> <a id="sym"></a><a id="241" href="Algebra.Group.Symmetric.html#241" class="Function">inv&#39;</a><a id="245" class="Symbol">;</a> <a id="247" href="Function.Inverse.html#3758" class="Function Operator">_∘_</a> <a id="251" class="Symbol">to</a> <a id="_∘_"></a><a id="254" href="Algebra.Group.Symmetric.html#254" class="Function Operator">_∘&#39;_</a><a id="258" class="Symbol">)</a>
+
+<a id="Sym"></a><a id="261" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a> <a id="265" class="Symbol">:</a> <a id="267" class="PrimitiveType">Set</a> <a id="271" class="Symbol">_</a>
+<a id="273" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a> <a id="277" class="Symbol">=</a> <a id="279" href="Function.Inverse.html#1162" class="Record">Inverse</a> <a id="287" href="Algebra.Structures.html#1285" class="Function">setoid</a> <a id="294" href="Algebra.Structures.html#1285" class="Function">setoid</a>
+
+<a id="e"></a><a id="302" href="Algebra.Group.Symmetric.html#302" class="Function">e</a> <a id="304" class="Symbol">:</a> <a id="306" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a>
+<a id="310" href="Algebra.Group.Symmetric.html#302" class="Function">e</a> <a id="312" class="Symbol">=</a> <a id="314" href="Function.Inverse.html#3439" class="Function">id</a>
+
+<a id="inv"></a><a id="318" href="Algebra.Group.Symmetric.html#318" class="Function">inv</a> <a id="322" class="Symbol">:</a> <a id="324" href="Algebra.Core.html#475" class="Function">Op₁</a> <a id="328" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a>
+<a id="332" href="Algebra.Group.Symmetric.html#318" class="Function">inv</a> <a id="336" class="Symbol">=</a> <a id="338" href="Algebra.Group.Symmetric.html#241" class="Function">inv&#39;</a>
+
+<a id="344" class="Keyword">infixl</a> <a id="351" class="Number">60</a> <a id="354" href="Algebra.Group.Symmetric.html#358" class="Function Operator">_∘_</a>
+<a id="_∘_"></a><a id="358" href="Algebra.Group.Symmetric.html#358" class="Function Operator">_∘_</a> <a id="362" class="Symbol">:</a> <a id="364" href="Algebra.Core.html#518" class="Function">Op₂</a> <a id="368" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a>
+<a id="372" href="Algebra.Group.Symmetric.html#358" class="Function Operator">_∘_</a> <a id="376" class="Symbol">=</a> <a id="378" href="Algebra.Group.Symmetric.html#254" class="Function Operator">_∘&#39;_</a>
+</pre></body></html>
