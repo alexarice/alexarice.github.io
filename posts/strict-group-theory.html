@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-30 Mon 16:20 -->
+<!-- 2020-03-30 Mon 17:07 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Strictly Associative Group Theory</title>
@@ -17,7 +17,7 @@
 <div id="content">
 <h1 class="title">Strictly Associative Group Theory</h1>
 <div style="display: none;">
-<pre class="agda">
+<pre class="Agda">
 <a id="431" class="Keyword">open</a> <a id="436" class="Keyword">import</a> <a id="443" href="Algebra.Bundles.html" class="Module">Algebra.Bundles</a> <a id="459" class="Keyword">using</a> <a id="465" class="Symbol">(</a><a id="466" href="Algebra.Bundles.html#6392" class="Record">Group</a><a id="471" class="Symbol">)</a>
 <a id="473" class="Keyword">open</a> <a id="478" class="Keyword">import</a> <a id="485" href="Level.html" class="Module">Level</a> <a id="491" class="Keyword">using</a> <a id="497" class="Symbol">(</a><a id="498" href="Level.html#512" class="Function">0ℓ</a><a id="500" class="Symbol">)</a>
 <a id="502" class="Keyword">module</a> <a id="509" href="strict-group-theory.html" class="Module">_</a> <a id="511" class="Symbol">{</a><a id="512" href="strict-group-theory.html#512" class="Bound">𝓖</a> <a id="514" class="Symbol">:</a> <a id="516" href="Algebra.Bundles.html#6392" class="Record">Group</a> <a id="522" href="Level.html#512" class="Function">0ℓ</a> <a id="525" href="Level.html#512" class="Function">0ℓ</a><a id="527" class="Symbol">}</a> <a id="529" class="Keyword">where</a>
@@ -29,14 +29,14 @@
 </pre>
 </div>
 
-<div id="outline-container-org8a65a41" class="outline-2">
-<h2 id="org8a65a41">Introduction</h2>
-<div class="outline-text-2" id="text-org8a65a41">
+<div id="outline-container-orged2fb40" class="outline-2">
+<h2 id="orged2fb40">Introduction</h2>
+<div class="outline-text-2" id="text-orged2fb40">
 <p>
 Commonly, when one starts to learn group theory, they are given the axioms for a group and then shown a very basic proof which very carefully uses these axioms. As an example, one might show that the identity of a group is unique:
 </p>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="947" href="strict-group-theory.html#947" class="Function">identityˡ-unique</a> <a id="964" class="Symbol">:</a> <a id="966" class="Symbol">∀</a> <a id="968" href="strict-group-theory.html#968" class="Bound">x</a> <a id="970" href="strict-group-theory.html#970" class="Bound">y</a> <a id="972" class="Symbol">→</a> <a id="974" href="strict-group-theory.html#968" class="Bound">x</a> <a id="976" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="978" href="strict-group-theory.html#970" class="Bound">y</a> <a id="980" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="982" href="strict-group-theory.html#970" class="Bound">y</a> <a id="984" class="Symbol">→</a> <a id="986" href="strict-group-theory.html#968" class="Bound">x</a> <a id="988" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="990" href="Algebra.Bundles.html#6559" class="Field">ε</a>
   <a id="994" href="strict-group-theory.html#947" class="Function">identityˡ-unique</a> <a id="1011" href="strict-group-theory.html#1011" class="Bound">x</a> <a id="1013" href="strict-group-theory.html#1013" class="Bound">y</a> <a id="1015" href="strict-group-theory.html#1015" class="Bound">eq</a> <a id="1018" class="Symbol">=</a> <a id="1020" href="Relation.Binary.Reasoning.Base.Partial.html#1660" class="Function Operator">begin</a>
     <a id="1030" href="strict-group-theory.html#1011" class="Bound">x</a>              <a id="1045" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">≈˘⟨</a> <a id="1049" href="Algebra.Structures.html#2746" class="Function">identityʳ</a> <a id="1059" href="strict-group-theory.html#1011" class="Bound">x</a> <a id="1061" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">⟩</a>
@@ -61,9 +61,9 @@ In this post, a method in which this "bracketless group theory" can be written i
 </div>
 </div>
 
-<div id="outline-container-org60d5257" class="outline-2">
-<h2 id="org60d5257">The Idea</h2>
-<div class="outline-text-2" id="text-org60d5257">
+<div id="outline-container-org1a9e8f5" class="outline-2">
+<h2 id="org1a9e8f5">The Idea</h2>
+<div class="outline-text-2" id="text-org1a9e8f5">
 <p>
 The key concept that will be used is that there are two different types of equality in Type Theory (which is the perspective taken for this post). The first type is propositional equality, which is written as <code>≈</code> above. <code>A ≈ B</code> effectively means that we can prove that <code>A</code> and <code>B</code> are equal. The second type of equality is definitional equality or judgmental equality. This is stronger than propositional equality and if two objects are definitionally equal it means that they are the same objects (or at least have the same normal form in the type theory).
 </p>
@@ -71,7 +71,7 @@ The key concept that will be used is that there are two different types of equal
 <p>
 What we had above was a propositional equality between <code>(x ∙ y) ∙ z</code> and <code>x ∙ (y ∙ z)</code>
 </p>
-<pre class="agda">
+<pre class="Agda">
   <a id="2903" href="strict-group-theory.html#2903" class="Function">gassoc</a> <a id="2910" class="Symbol">:</a> <a id="2912" class="Symbol">∀</a> <a id="2914" href="strict-group-theory.html#2914" class="Bound">x</a> <a id="2916" href="strict-group-theory.html#2916" class="Bound">y</a> <a id="2918" href="strict-group-theory.html#2918" class="Bound">z</a> <a id="2920" class="Symbol">→</a> <a id="2922" class="Symbol">(</a><a id="2923" href="strict-group-theory.html#2914" class="Bound">x</a> <a id="2925" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="2927" href="strict-group-theory.html#2916" class="Bound">y</a><a id="2928" class="Symbol">)</a> <a id="2930" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="2932" href="strict-group-theory.html#2918" class="Bound">z</a> <a id="2934" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="2936" href="strict-group-theory.html#2914" class="Bound">x</a> <a id="2938" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="2940" class="Symbol">(</a><a id="2941" href="strict-group-theory.html#2916" class="Bound">y</a> <a id="2943" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="2945" href="strict-group-theory.html#2918" class="Bound">z</a><a id="2946" class="Symbol">)</a>
   <a id="2950" href="strict-group-theory.html#2903" class="Function">gassoc</a> <a id="2957" href="strict-group-theory.html#2957" class="Bound">x</a> <a id="2959" href="strict-group-theory.html#2959" class="Bound">y</a> <a id="2961" href="strict-group-theory.html#2961" class="Bound">z</a> <a id="2963" class="Symbol">=</a> <a id="2965" href="Algebra.Structures.html#1569" class="Function">assoc</a> <a id="2971" href="strict-group-theory.html#2957" class="Bound">x</a> <a id="2973" href="strict-group-theory.html#2959" class="Bound">y</a> <a id="2975" href="strict-group-theory.html#2961" class="Bound">z</a>
 </pre>
@@ -80,7 +80,7 @@ What we had above was a propositional equality between <code>(x ∙ y) ∙ z</co
 when what we really want is for this to be a definitional equality, which would allow us to treat these as the same object. We say that we have <i>strict associativity</i> exactly when this equation holds by definition. Luckily there is such a structure that has this property, namely function composition. Suppose we have functions <code>f g h : X → X</code>. Then we have
 </p>
 <div style="display: none;">
-<pre class="agda">
+<pre class="Agda">
 <a id="3401" class="Keyword">module</a> <a id="hidden"></a><a id="3408" href="strict-group-theory.html#3408" class="Module">hidden</a> <a id="3415" class="Keyword">where</a>
   <a id="3423" class="Keyword">open</a> <a id="3428" class="Keyword">import</a> <a id="3435" href="Relation.Binary.PropositionalEquality.html" class="Module">Relation.Binary.PropositionalEquality</a>
   <a id="3475" class="Keyword">infixr</a> <a id="3482" class="Number">5</a> <a id="3484" href="strict-group-theory.html#3490" class="Function Operator">_∘_</a>
@@ -91,14 +91,14 @@ when what we really want is for this to be a definitional equality, which would 
   <a id="3611" href="strict-group-theory.html#3569" class="Function Operator">_≃_</a> <a id="3615" class="Symbol">{</a><a id="3616" href="strict-group-theory.html#3616" class="Bound">X</a><a id="3617" class="Symbol">}</a> <a id="3619" href="strict-group-theory.html#3619" class="Bound">f</a> <a id="3621" href="strict-group-theory.html#3621" class="Bound">g</a> <a id="3623" class="Symbol">=</a> <a id="3625" class="Symbol">(</a><a id="3626" href="strict-group-theory.html#3626" class="Bound">x</a> <a id="3628" class="Symbol">:</a> <a id="3630" href="strict-group-theory.html#3616" class="Bound">X</a><a id="3631" class="Symbol">)</a> <a id="3633" class="Symbol">→</a> <a id="3635" href="strict-group-theory.html#3619" class="Bound">f</a> <a id="3637" href="strict-group-theory.html#3626" class="Bound">x</a> <a id="3639" href="Agda.Builtin.Equality.html#151" class="Datatype Operator">≡</a> <a id="3641" href="strict-group-theory.html#3621" class="Bound">g</a> <a id="3643" href="strict-group-theory.html#3626" class="Bound">x</a>
 </pre>
 </div>
-<pre class="agda">
+<pre class="Agda">
   <a id="hidden.sassoc"></a><a id="3690" href="strict-group-theory.html#3690" class="Function">sassoc</a> <a id="3697" class="Symbol">:</a> <a id="3699" class="Symbol">∀</a> <a id="3701" class="Symbol">{</a><a id="3702" href="strict-group-theory.html#3702" class="Bound">X</a><a id="3703" class="Symbol">}</a> <a id="3705" class="Symbol">(</a><a id="3706" href="strict-group-theory.html#3706" class="Bound">f</a> <a id="3708" href="strict-group-theory.html#3708" class="Bound">g</a> <a id="3710" href="strict-group-theory.html#3710" class="Bound">h</a> <a id="3712" class="Symbol">:</a> <a id="3714" href="strict-group-theory.html#3702" class="Bound">X</a> <a id="3716" class="Symbol">→</a> <a id="3718" href="strict-group-theory.html#3702" class="Bound">X</a><a id="3719" class="Symbol">)</a> <a id="3721" class="Symbol">→</a> <a id="3723" class="Symbol">(</a><a id="3724" href="strict-group-theory.html#3706" class="Bound">f</a> <a id="3726" href="strict-group-theory.html#3490" class="Function Operator">∘</a> <a id="3728" href="strict-group-theory.html#3708" class="Bound">g</a><a id="3729" class="Symbol">)</a> <a id="3731" href="strict-group-theory.html#3490" class="Function Operator">∘</a> <a id="3733" href="strict-group-theory.html#3710" class="Bound">h</a> <a id="3735" href="strict-group-theory.html#3569" class="Function Operator">≃</a> <a id="3737" href="strict-group-theory.html#3706" class="Bound">f</a> <a id="3739" href="strict-group-theory.html#3490" class="Function Operator">∘</a> <a id="3741" class="Symbol">(</a><a id="3742" href="strict-group-theory.html#3708" class="Bound">g</a> <a id="3744" href="strict-group-theory.html#3490" class="Function Operator">∘</a> <a id="3746" href="strict-group-theory.html#3710" class="Bound">h</a><a id="3747" class="Symbol">)</a>
   <a id="3751" href="strict-group-theory.html#3690" class="Function">sassoc</a> <a id="3758" href="strict-group-theory.html#3758" class="Bound">f</a> <a id="3760" href="strict-group-theory.html#3760" class="Bound">g</a> <a id="3762" href="strict-group-theory.html#3762" class="Bound">h</a> <a id="3764" class="Symbol">=</a> <a id="3766" class="Symbol">λ</a> <a id="3768" href="strict-group-theory.html#3768" class="Bound">x</a> <a id="3770" class="Symbol">→</a> <a id="3772" href="Agda.Builtin.Equality.html#208" class="InductiveConstructor">refl</a>
 </pre>
 <p>
 Therefore we can work with functions without ever having to worry about associativity problems. We can also note that we also eliminate the need for any identity laws with functions as for all sets <code>X</code>, we have an identity function <code>id : X → X</code> with
 </p>
-<pre class="agda">
+<pre class="Agda">
   <a id="hidden.id"></a><a id="4057" href="strict-group-theory.html#4057" class="Function">id</a> <a id="4060" class="Symbol">:</a> <a id="4062" class="Symbol">∀</a> <a id="4064" class="Symbol">{</a><a id="4065" href="strict-group-theory.html#4065" class="Bound">X</a> <a id="4067" class="Symbol">:</a> <a id="4069" class="PrimitiveType">Set</a><a id="4072" class="Symbol">}</a> <a id="4074" class="Symbol">→</a> <a id="4076" href="strict-group-theory.html#4065" class="Bound">X</a> <a id="4078" class="Symbol">→</a> <a id="4080" href="strict-group-theory.html#4065" class="Bound">X</a>
   <a id="4084" href="strict-group-theory.html#4057" class="Function">id</a> <a id="4087" href="strict-group-theory.html#4087" class="Bound">x</a> <a id="4089" class="Symbol">=</a> <a id="4091" href="strict-group-theory.html#4087" class="Bound">x</a>
 
@@ -114,9 +114,9 @@ We say a structure has <i>strict units</i> or is <i>strictly unital</i> when thi
 </p>
 </div>
 
-<div id="outline-container-orgbe052e4" class="outline-3">
-<h3 id="orgbe052e4">Cayley's Theorem</h3>
-<div class="outline-text-3" id="text-orgbe052e4">
+<div id="outline-container-org7e9f2f6" class="outline-3">
+<h3 id="org7e9f2f6">Cayley's Theorem</h3>
+<div class="outline-text-3" id="text-org7e9f2f6">
 <p>
 Cayley's theorem gives us a translation from group operations to function composition. To understand what is says, we first need to introduce the notion of the symmetric group.
 </p>
@@ -159,14 +159,14 @@ Suppose we want to prove <code>e₁ ≈ e₂</code>. The plan is to do the follo
 </div>
 </div>
 
-<div id="outline-container-orgfb64e8c" class="outline-2">
-<h2 id="orgfb64e8c">Implementation</h2>
-<div class="outline-text-2" id="text-orgfb64e8c">
+<div id="outline-container-org2cbdb46" class="outline-2">
+<h2 id="org2cbdb46">Implementation</h2>
+<div class="outline-text-2" id="text-org2cbdb46">
 <p>
 All the ideas above have been implemented in <a href="https://github.com/alexarice/Groups">https://github.com/alexarice/Groups</a>. The corresponding version of the proof in the introduction is:
 </p>
 <div style="display: none;">
-<pre class="agda">
+<pre class="Agda">
 <a id="5931" class="Keyword">module</a> <a id="5938" href="strict-group-theory.html#5938" class="Module">_</a> <a id="5940" class="Keyword">where</a>
   <a id="5948" class="Keyword">open</a> <a id="5953" class="Keyword">import</a> <a id="5960" href="Algebra.Group.Symmetric.html" class="Module">Algebra.Group.Symmetric</a> <a id="5984" href="strict-group-theory.html#512" class="Bound">𝓖</a> <a id="5986" class="Keyword">renaming</a> <a id="5995" class="Symbol">(</a>e <a id="5998" class="Symbol">to</a> id<a id="6003" class="Symbol">)</a>
   <a id="6007" class="Keyword">open</a> <a id="6012" class="Keyword">import</a> <a id="6019" href="Algebra.Group.Symmetric.Equality.html" class="Module">Algebra.Group.Symmetric.Equality</a> <a id="6052" href="strict-group-theory.html#512" class="Bound">𝓖</a>
@@ -174,7 +174,7 @@ All the ideas above have been implemented in <a href="https://github.com/alexari
   <a id="6096" class="Keyword">open</a> <a id="6101" class="Keyword">import</a> <a id="6108" href="Algebra.Group.Properties.html" class="Module">Algebra.Group.Properties</a> <a id="6133" href="Algebra.Group.Symmetric.Equality.html#2550" class="Function">SymGroup</a> <a id="6142" class="Keyword">using</a> <a id="6148" class="Symbol">(</a>invʳ<a id="6153" class="Symbol">;</a> invˡ<a id="6159" class="Symbol">)</a>
 </pre>
 </div>
-<pre class="agda">
+<pre class="Agda">
   <a id="6205" href="strict-group-theory.html#6205" class="Function">identity-is-unique-strong</a> <a id="6231" class="Symbol">:</a> <a id="6233" class="Symbol">∀</a> <a id="6235" href="strict-group-theory.html#6235" class="Bound">a</a> <a id="6237" href="strict-group-theory.html#6237" class="Bound">b</a> <a id="6239" class="Symbol">→</a> <a id="6241" href="strict-group-theory.html#6235" class="Bound">a</a> <a id="6243" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="6245" href="strict-group-theory.html#6237" class="Bound">b</a> <a id="6247" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="6249" href="strict-group-theory.html#6237" class="Bound">b</a> <a id="6251" class="Symbol">→</a> <a id="6253" href="strict-group-theory.html#6235" class="Bound">a</a> <a id="6255" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="6257" href="Algebra.Bundles.html#6559" class="Field">ε</a>
   <a id="6261" href="strict-group-theory.html#6205" class="Function">identity-is-unique-strong</a> <a id="6287" href="strict-group-theory.html#6287" class="Bound">a</a> <a id="6289" href="strict-group-theory.html#6289" class="Bound">b</a> <a id="6291" href="strict-group-theory.html#6291" class="Bound">p</a> <a id="6293" class="Symbol">=</a> <a id="6295" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">begin⟨</a> <a id="6302" href="Algebra.Group.Symmetric.Inclusion.html#1871" class="Function">⟦⟧</a> <a id="6305" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">⟩</a>
     <a id="6311" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="6313" href="strict-group-theory.html#6287" class="Bound">a</a> <a id="6315" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a>                       <a id="6339" href="Algebra.Group.Reasoning.html#2941" class="Function">∘⟨⟩≣˘⟨</a> <a id="6346" href="Algebra.Group.Properties.html#296" class="Function">invʳ</a> <a id="6351" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="6353" href="strict-group-theory.html#6289" class="Bound">b</a> <a id="6355" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="6357" href="Algebra.Group.Reasoning.html#2941" class="Function">⟩</a>
@@ -187,7 +187,7 @@ All the ideas above have been implemented in <a href="https://github.com/alexari
 As a second example, here is the proof of left cancellation:
 </p>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="6595" href="strict-group-theory.html#6595" class="Function">left-cancellation</a> <a id="6613" class="Symbol">:</a> <a id="6615" class="Symbol">∀</a> <a id="6617" href="strict-group-theory.html#6617" class="Bound">g</a> <a id="6619" href="strict-group-theory.html#6619" class="Bound">h</a> <a id="6621" href="strict-group-theory.html#6621" class="Bound">x</a> <a id="6623" class="Symbol">→</a> <a id="6625" href="strict-group-theory.html#6621" class="Bound">x</a> <a id="6627" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="6629" href="strict-group-theory.html#6617" class="Bound">g</a> <a id="6631" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="6633" href="strict-group-theory.html#6621" class="Bound">x</a> <a id="6635" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="6637" href="strict-group-theory.html#6619" class="Bound">h</a> <a id="6639" class="Symbol">→</a> <a id="6641" href="strict-group-theory.html#6617" class="Bound">g</a> <a id="6643" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="6645" href="strict-group-theory.html#6619" class="Bound">h</a>
   <a id="6649" href="strict-group-theory.html#6595" class="Function">left-cancellation</a> <a id="6667" href="strict-group-theory.html#6667" class="Bound">g</a> <a id="6669" href="strict-group-theory.html#6669" class="Bound">h</a> <a id="6671" href="strict-group-theory.html#6671" class="Bound">x</a> <a id="6673" href="strict-group-theory.html#6673" class="Bound">p</a> <a id="6675" class="Symbol">=</a> <a id="6677" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">begin⟨</a> <a id="6684" href="Algebra.Group.Symmetric.Inclusion.html#1871" class="Function">⟦⟧</a> <a id="6687" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">⟩</a>
     <a id="6693" href="Algebra.Group.Reasoning.html#2606" class="Function">⟨⟩∘</a> <a id="6697" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="6699" href="strict-group-theory.html#6667" class="Bound">g</a> <a id="6701" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="6703" href="Algebra.Group.Reasoning.html#2606" class="Function">≣˘⟨</a> <a id="6707" href="Algebra.Group.Properties.html#246" class="Function">invˡ</a> <a id="6712" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="6714" href="strict-group-theory.html#6671" class="Bound">x</a> <a id="6716" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="6718" href="Algebra.Group.Reasoning.html#2606" class="Function">⟩</a>
@@ -200,7 +200,7 @@ As a second example, here is the proof of left cancellation:
 and that the inverse operation is an anti homomorphism on the group operation:
 </p>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="6943" href="strict-group-theory.html#6943" class="Function">inv-of-composite</a> <a id="6960" class="Symbol">:</a> <a id="6962" class="Symbol">∀</a> <a id="6964" href="strict-group-theory.html#6964" class="Bound">g</a> <a id="6966" href="strict-group-theory.html#6966" class="Bound">h</a> <a id="6968" class="Symbol">→</a> <a id="6970" class="Symbol">(</a><a id="6971" href="strict-group-theory.html#6964" class="Bound">g</a> <a id="6973" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="6975" href="strict-group-theory.html#6966" class="Bound">h</a><a id="6976" class="Symbol">)</a> <a id="6978" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a> <a id="6981" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="6983" href="strict-group-theory.html#6966" class="Bound">h</a> <a id="6985" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a> <a id="6988" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="6990" href="strict-group-theory.html#6964" class="Bound">g</a> <a id="6992" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a>
   <a id="6997" href="strict-group-theory.html#6943" class="Function">inv-of-composite</a> <a id="7014" href="strict-group-theory.html#7014" class="Bound">g</a> <a id="7016" href="strict-group-theory.html#7016" class="Bound">h</a> <a id="7018" class="Symbol">=</a> <a id="7020" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">begin⟨</a> <a id="7027" href="Algebra.Group.Symmetric.Inclusion.html#1871" class="Function">⟦⟧</a> <a id="7030" href="Algebra.Group.Reasoning.Reflection.html#2083" class="Macro Operator">⟩</a>
     <a id="7036" href="Algebra.Group.Symmetric.html#318" class="Function">inv</a> <a id="7040" class="Symbol">(</a><a id="7041" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="7043" href="strict-group-theory.html#7014" class="Bound">g</a> <a id="7045" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="7047" href="Algebra.Group.Symmetric.html#358" class="Function Operator">∘</a> <a id="7049" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="7051" href="strict-group-theory.html#7016" class="Bound">h</a> <a id="7053" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a><a id="7054" class="Symbol">)</a> <a id="7056" href="Algebra.Group.Reasoning.html#2941" class="Function">∘⟨⟩≣˘⟨</a> <a id="7063" href="Algebra.Group.Properties.html#296" class="Function">invʳ</a> <a id="7068" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="7070" href="strict-group-theory.html#7014" class="Bound">g</a> <a id="7072" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="7074" href="Algebra.Group.Reasoning.html#2941" class="Function">⟩</a>
@@ -215,9 +215,9 @@ The rest of the post will be explaining the code above.
 </p>
 </div>
 
-<div id="outline-container-org5f46366" class="outline-3">
-<h3 id="org5f46366">Elimination of cong</h3>
-<div class="outline-text-3" id="text-org5f46366">
+<div id="outline-container-org3a72e69" class="outline-3">
+<h3 id="org3a72e69">Elimination of cong</h3>
+<div class="outline-text-3" id="text-org3a72e69">
 <p>
 Perhaps the most obvious change from the original code is the addition of the angle brackets <code>⟨</code> and <code>⟩</code>. These allow us to apply an equality to a part of the expression we are working on. Instead of having to manually use a <code>cong</code> function to manipulate the equality (as well as making it unreadable), we instead use the syntax above which allows the appropriate equalities to be automatically put in.
 </p>
@@ -228,9 +228,9 @@ This is made possible due to the simplicity of the expressions. As each expressi
 </div>
 </div>
 
-<div id="outline-container-org573d583" class="outline-3">
-<h3 id="org573d583">Strict associativity and unitality</h3>
-<div class="outline-text-3" id="text-org573d583">
+<div id="outline-container-orge26b552" class="outline-3">
+<h3 id="orge26b552">Strict associativity and unitality</h3>
+<div class="outline-text-3" id="text-orge26b552">
 <p>
 The above proof shows that the need for associativity operations has been removed. The result of the first equality in the proof is:
 </p>
@@ -248,7 +248,7 @@ and yet in the next line we treat it as:
 </pre>
 
 <p>
-without telling Agda how to deal with this. This is possible as the terms have the same normal form (this is not actually true, see <a href="#orga2677cc">here</a>).
+without telling Agda how to deal with this. This is possible as the terms have the same normal form (this is not actually true, see <a href="#org3ffea7d">here</a>).
 </p>
 
 <p>
@@ -257,9 +257,9 @@ We can also see that unitality has been taken care of. In the first line it has 
 </div>
 </div>
 
-<div id="outline-container-orga2677cc" class="outline-3">
-<h3 id="orga2677cc">Equality between functions</h3>
-<div class="outline-text-3" id="text-orga2677cc">
+<div id="outline-container-org3ffea7d" class="outline-3">
+<h3 id="org3ffea7d">Equality between functions</h3>
+<div class="outline-text-3" id="text-org3ffea7d">
 <p>
 The choice of equality between functions is crucial to making this syntax work. The complication is that we have said function composition is strictly associative but glossed over that we are working with permutations or invertible functions.
 </p>
@@ -273,7 +273,7 @@ This would lead us to the following definition of equality between invertible fu
 </p>
 
 <div style="display: none;">
-<pre class="agda">
+<pre class="Agda">
 <a id="9529" class="Keyword">module</a> <a id="hidden2"></a><a id="9536" href="strict-group-theory.html#9536" class="Module">hidden2</a> <a id="9544" class="Keyword">where</a>
   <a id="9552" class="Keyword">open</a> <a id="9557" class="Keyword">import</a> <a id="9564" href="Algebra.Group.Symmetric.html" class="Module">Algebra.Group.Symmetric</a> <a id="9588" href="strict-group-theory.html#512" class="Bound">𝓖</a> <a id="9590" class="Keyword">renaming</a> <a id="9599" class="Symbol">(</a>e <a id="9602" class="Symbol">to</a> id<a id="9607" class="Symbol">)</a>
   <a id="9611" class="Keyword">open</a> <a id="9616" class="Keyword">import</a> <a id="9623" href="Function.Equality.html" class="Module">Function.Equality</a> <a id="9641" class="Keyword">using</a> <a id="9647" class="Symbol">(</a><a id="9648" href="Function.Equality.html#2504" class="Function Operator">_⇨_</a><a id="9651" class="Symbol">;</a><a id="9652" href="Function.Equality.html#661" class="Record">Π</a><a id="9653" class="Symbol">;</a><a id="9654" href="Function.Equality.html#990" class="Function Operator">_⟶_</a><a id="9657" class="Symbol">)</a> <a id="9659" class="Keyword">renaming</a> <a id="9668" class="Symbol">(</a><a id="9669" href="Function.Equality.html#1303" class="Function Operator">_∘_</a> <a id="9673" class="Symbol">to</a> <a id="Equality._∘_"></a><a id="9676" href="strict-group-theory.html#9676" class="Function Operator">_*_</a><a id="9679" class="Symbol">)</a>
@@ -290,7 +290,7 @@ This would lead us to the following definition of equality between invertible fu
 </pre>
 </div>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="hidden2._∼_"></a><a id="9983" href="strict-group-theory.html#9983" class="Function Operator">_∼_</a> <a id="9987" class="Symbol">:</a> <a id="9989" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a> <a id="9993" class="Symbol">→</a> <a id="9995" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a> <a id="9999" class="Symbol">→</a> <a id="10001" class="PrimitiveType">Set</a>
   <a id="10007" href="strict-group-theory.html#10007" class="Bound">f</a> <a id="10009" href="strict-group-theory.html#9983" class="Function Operator">∼</a> <a id="10011" href="strict-group-theory.html#10011" class="Bound">g</a> <a id="10013" class="Symbol">=</a> <a id="10015" href="Function.Inverse.html#1300" class="Field">to</a> <a id="10018" href="strict-group-theory.html#10007" class="Bound">f</a> <a id="10020" href="strict-group-theory.html#9933" class="Function Operator">≃</a> <a id="10022" href="Function.Inverse.html#1300" class="Field">to</a> <a id="10025" href="strict-group-theory.html#10011" class="Bound">g</a>
 </pre>
@@ -303,7 +303,7 @@ Where Sym is the type of permutations on the group and <code>≃</code> is point
 This has the advantage that it does not remember any of the invertibility data and so we can have all the nice features mentioned above. However, it turns out that this forgets too much invertibility data, in that if the implementation is made with this equality, then Agda will complain everywhere about implicit arguments that it cannot resolve. The next thing we might try is to remember the invertibility data but do not check whether it is equal. This leads to the following definition.
 </p>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="10648" class="Keyword">record</a> <a id="hidden2.SymEq"></a><a id="10655" href="strict-group-theory.html#10655" class="Record">SymEq</a> <a id="10661" class="Symbol">(</a><a id="10662" href="strict-group-theory.html#10662" class="Bound">f</a> <a id="10664" href="strict-group-theory.html#10664" class="Bound">g</a> <a id="10666" class="Symbol">:</a> <a id="10668" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a><a id="10671" class="Symbol">)</a> <a id="10673" class="Symbol">:</a> <a id="10675" class="PrimitiveType">Set</a> <a id="10679" class="Keyword">where</a>
     <a id="10689" class="Keyword">field</a>
       <a id="hidden2.SymEq.eq"></a><a id="10701" href="strict-group-theory.html#10701" class="Field">eq</a> <a id="10704" class="Symbol">:</a> <a id="10706" href="Function.Inverse.html#1300" class="Field">to</a> <a id="10709" href="strict-group-theory.html#10662" class="Bound">f</a> <a id="10711" href="strict-group-theory.html#9933" class="Function Operator">≃</a> <a id="10713" href="Function.Inverse.html#1300" class="Field">to</a> <a id="10716" href="strict-group-theory.html#10664" class="Bound">g</a>
@@ -316,7 +316,7 @@ This has the advantage that it does not remember any of the invertibility data a
 This ends up being a nice form of equality which we use to define the symmetric group. Unfortunately, it runs into problems with invertibility data not lining up if we try to use it in the syntax above. It turns out we need another type of equality, where we only remember the invertibility data for the second argument. This clears all the implicit argument problems without introducing any associativity problems.
 </p>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="11205" class="Keyword">record</a> <a id="hidden2.PartSymEq"></a><a id="11212" href="strict-group-theory.html#11212" class="Record">PartSymEq</a> <a id="11222" class="Symbol">(</a><a id="11223" href="strict-group-theory.html#11223" class="Bound">f</a> <a id="11225" class="Symbol">:</a> <a id="11227" href="strict-group-theory.html#585" class="Function">G</a> <a id="11229" href="Function.Equality.html#990" class="Function Operator">⟶</a> <a id="11231" href="strict-group-theory.html#585" class="Function">G</a><a id="11232" class="Symbol">)</a> <a id="11234" class="Symbol">(</a><a id="11235" href="strict-group-theory.html#11235" class="Bound">g</a> <a id="11237" class="Symbol">:</a> <a id="11239" href="Algebra.Group.Symmetric.html#261" class="Function">Sym</a><a id="11242" class="Symbol">)</a> <a id="11244" class="Symbol">:</a> <a id="11246" class="PrimitiveType">Set</a> <a id="11250" class="Keyword">where</a>
     <a id="11260" class="Keyword">field</a>
       <a id="hidden2.PartSymEq.peq"></a><a id="11272" href="strict-group-theory.html#11272" class="Field">peq</a> <a id="11276" class="Symbol">:</a> <a id="11278" href="strict-group-theory.html#11223" class="Bound">f</a> <a id="11280" href="strict-group-theory.html#9933" class="Function Operator">≃</a> <a id="11282" href="Function.Inverse.html#1300" class="Field">to</a> <a id="11285" href="strict-group-theory.html#11235" class="Bound">g</a>
@@ -327,9 +327,9 @@ This ends up being a nice form of equality which we use to define the symmetric 
 </div>
 </div>
 
-<div id="outline-container-org9d8c55b" class="outline-3">
-<h3 id="org9d8c55b">Dealing with homomorphisms</h3>
-<div class="outline-text-3" id="text-org9d8c55b">
+<div id="outline-container-orgbfd7e00" class="outline-3">
+<h3 id="orgbfd7e00">Dealing with homomorphisms</h3>
+<div class="outline-text-3" id="text-orgbfd7e00">
 <p>
 So far we have not covered the last step of the proof strategy, which was using injectivity transform function equality to group element equality. This is a very simple procedure, however it does not usually do what we want. Consider the proof that identities are unique. Injectivity gives us something of the form:
 </p>
@@ -375,7 +375,7 @@ The proofs that these imply each other are not too difficult but applying them t
 </p>
 
 <div style="display: none;">
-<pre class="agda">
+<pre class="Agda">
 <a id="12779" class="Keyword">module</a> <a id="12786" href="strict-group-theory.html#12786" class="Module">_</a> <a id="12788" class="Keyword">where</a>
   <a id="12796" class="Keyword">open</a> <a id="12801" class="Keyword">import</a> <a id="12808" href="Algebra.Group.Symmetric.html" class="Module">Algebra.Group.Symmetric</a> <a id="12832" href="strict-group-theory.html#512" class="Bound">𝓖</a> <a id="12834" class="Keyword">renaming</a> <a id="12843" class="Symbol">(</a>e <a id="12846" class="Symbol">to</a> id<a id="12851" class="Symbol">)</a>
   <a id="12855" class="Keyword">open</a> <a id="12860" class="Keyword">import</a> <a id="12867" href="Algebra.Group.Symmetric.Equality.html" class="Module">Algebra.Group.Symmetric.Equality</a> <a id="12900" href="strict-group-theory.html#512" class="Bound">𝓖</a>
@@ -383,7 +383,7 @@ The proofs that these imply each other are not too difficult but applying them t
 </pre>
 </div>
 
-<pre class="agda">
+<pre class="Agda">
   <a id="12987" href="strict-group-theory.html#12987" class="Function">test</a> <a id="12992" class="Symbol">:</a> <a id="12994" class="Symbol">∀</a> <a id="12996" href="strict-group-theory.html#12996" class="Bound">a</a> <a id="12998" href="strict-group-theory.html#12998" class="Bound">b</a> <a id="13000" class="Symbol">→</a> <a id="13002" href="strict-group-theory.html#12996" class="Bound">a</a> <a id="13004" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="13006" href="strict-group-theory.html#12998" class="Bound">b</a> <a id="13008" class="Symbol">→</a> <a id="13010" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="13012" href="strict-group-theory.html#12996" class="Bound">a</a> <a id="13014" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a> <a id="13016" href="Algebra.Group.Symmetric.Equality.html#1203" class="Function Operator">≣</a> <a id="13018" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟦</a> <a id="13020" href="strict-group-theory.html#12998" class="Bound">b</a> <a id="13022" href="Algebra.Group.Symmetric.Inclusion.html#711" class="Function Operator">⟧</a>
   <a id="13026" href="strict-group-theory.html#12987" class="Function">test</a> <a id="13031" href="strict-group-theory.html#13031" class="Bound">a</a> <a id="13033" href="strict-group-theory.html#13033" class="Bound">b</a> <a id="13035" href="strict-group-theory.html#13035" class="Bound">p</a> <a id="13037" class="Symbol">=</a> <a id="13039" href="Tactic.Homomorphism.Group.html#5964" class="Macro Operator">⟨</a> <a id="13041" href="Algebra.Group.Symmetric.Inclusion.html#1871" class="Function">⟦⟧</a> <a id="13044" href="Tactic.Homomorphism.Group.html#5964" class="Macro Operator">⟩⦅</a> <a id="13047" href="strict-group-theory.html#13035" class="Bound">p</a> <a id="13049" href="Tactic.Homomorphism.Group.html#5964" class="Macro Operator">⦆</a>
 
@@ -403,9 +403,9 @@ The second reflection helper is wrapped in the <code>begin⟨_⟩_</code> functi
 </div>
 </div>
 
-<div id="outline-container-org21eab3a" class="outline-2">
-<h2 id="org21eab3a">Limitations</h2>
-<div class="outline-text-2" id="text-org21eab3a">
+<div id="outline-container-org8f06e6f" class="outline-2">
+<h2 id="org8f06e6f">Limitations</h2>
+<div class="outline-text-2" id="text-org8f06e6f">
 <p>
 There are currently a few limitations with this system:
 </p>
@@ -417,9 +417,9 @@ There are currently a few limitations with this system:
 </div>
 </div>
 
-<div id="outline-container-org0d19458" class="outline-2">
-<h2 id="org0d19458">Thanks</h2>
-<div class="outline-text-2" id="text-org0d19458">
+<div id="outline-container-org1d02665" class="outline-2">
+<h2 id="org1d02665">Thanks</h2>
+<div class="outline-text-2" id="text-org1d02665">
 <p>
 Thanks goes to Martin Escardo, who suggested the possibility of using Cayley's Theorem and convinced me to write this post.
 </p>

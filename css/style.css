@@ -58,8 +58,8 @@ h1 {
     color: #ff79c6;
 }
 
-.org-src-container {
-    margin: 20px 16px;
+pre.example {
+    margin: 20px 20px;
 }
 
 a:link, a:visited {
