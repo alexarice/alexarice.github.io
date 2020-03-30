@@ -1,3 +1,7 @@
+body .Agda {
+    color: #50fa7b
+}
+
 /* Aspects. */
 .Agda a.Comment       { color: #6272a4 }
 .Agda a.Background    {}
