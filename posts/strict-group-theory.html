@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-03-30 Mon 13:54 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Strictly Associative Group Theory</title>
+<meta name="generator" content="Org mode" />
+<link rel="stylesheet" type="text/css" href="../css/style.css" />
+<link rel="stylesheet" type="text/css" href="../css/style-posts.css" />
+<link rel="stylesheet" type="text/css" href="../css/Agda.css" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<div id="content">
+<h1 class="title">Strictly Associative Group Theory</h1>
+<pre class="agda">
+<a id="418" class="Keyword">open</a> <a id="423" class="Keyword">import</a> <a id="430" href="Algebra.Bundles.html" class="Module">Algebra.Bundles</a> <a id="446" class="Keyword">using</a> <a id="452" class="Symbol">(</a><a id="453" href="Algebra.Bundles.html#6392" class="Record">Group</a><a id="458" class="Symbol">)</a>
+<a id="460" class="Keyword">module</a> <a id="467" href="strict-group-theory.html" class="Module">_</a> <a id="469" class="Symbol">{</a><a id="470" href="strict-group-theory.html#470" class="Bound">c</a> <a id="472" href="strict-group-theory.html#472" class="Bound">ℓ</a><a id="473" class="Symbol">}</a> <a id="475" class="Symbol">{</a><a id="476" href="strict-group-theory.html#476" class="Bound">𝓖</a> <a id="478" class="Symbol">:</a> <a id="480" href="Algebra.Bundles.html#6392" class="Record">Group</a> <a id="486" href="strict-group-theory.html#470" class="Bound">c</a> <a id="488" href="strict-group-theory.html#472" class="Bound">ℓ</a><a id="489" class="Symbol">}</a> <a id="491" class="Keyword">where</a>
+
+<a id="498" class="Keyword">open</a> <a id="503" href="Algebra.Bundles.html#6392" class="Module">Group</a> <a id="509" href="strict-group-theory.html#476" class="Bound">𝓖</a>
+
+<a id="512" class="Keyword">open</a> <a id="517" class="Keyword">import</a> <a id="524" href="Relation.Binary.Reasoning.Setoid.html" class="Module">Relation.Binary.Reasoning.Setoid</a> <a id="557" href="Algebra.Structures.html#1285" class="Function">setoid</a>
+</pre>
+
+<div id="outline-container-org8a65a41" class="outline-2">
+<h2 id="org8a65a41">Introduction</h2>
+<div class="outline-text-2" id="text-org8a65a41">
+<p>
+Commonly, when one starts to learn group theory, they are given the axioms for a group and then shown a very basic proof which very carefully uses these axioms. As an example, one might show that the identity of a group is unique:
+</p>
+
+<pre class="agda">
+<a id="identityˡ-unique"></a><a id="841" href="strict-group-theory.html#841" class="Function">identityˡ-unique</a> <a id="858" class="Symbol">:</a> <a id="860" class="Symbol">∀</a> <a id="862" href="strict-group-theory.html#862" class="Bound">x</a> <a id="864" href="strict-group-theory.html#864" class="Bound">y</a> <a id="866" class="Symbol">→</a> <a id="868" href="strict-group-theory.html#862" class="Bound">x</a> <a id="870" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="872" href="strict-group-theory.html#864" class="Bound">y</a> <a id="874" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="876" href="strict-group-theory.html#864" class="Bound">y</a> <a id="878" class="Symbol">→</a> <a id="880" href="strict-group-theory.html#862" class="Bound">x</a> <a id="882" href="Algebra.Bundles.html#6505" class="Field Operator">≈</a> <a id="884" href="Algebra.Bundles.html#6559" class="Field">ε</a>
+<a id="886" href="strict-group-theory.html#841" class="Function">identityˡ-unique</a> <a id="903" href="strict-group-theory.html#903" class="Bound">x</a> <a id="905" href="strict-group-theory.html#905" class="Bound">y</a> <a id="907" href="strict-group-theory.html#907" class="Bound">eq</a> <a id="910" class="Symbol">=</a> <a id="912" href="Relation.Binary.Reasoning.Base.Partial.html#1660" class="Function Operator">begin</a>
+  <a id="920" href="strict-group-theory.html#903" class="Bound">x</a>              <a id="935" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">≈˘⟨</a> <a id="939" href="Algebra.Structures.html#2746" class="Function">identityʳ</a> <a id="949" href="strict-group-theory.html#903" class="Bound">x</a> <a id="951" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">⟩</a>
+  <a id="955" href="strict-group-theory.html#903" class="Bound">x</a> <a id="957" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="959" href="Algebra.Bundles.html#6559" class="Field">ε</a>          <a id="970" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">≈˘⟨</a> <a id="974" href="Algebra.Structures.html#1360" class="Function">∙-congˡ</a> <a id="982" class="Symbol">(</a><a id="983" href="Algebra.Structures.html#4369" class="Function">inverseʳ</a> <a id="992" href="strict-group-theory.html#905" class="Bound">y</a><a id="993" class="Symbol">)</a> <a id="995" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">⟩</a>
+  <a id="999" href="strict-group-theory.html#903" class="Bound">x</a> <a id="1001" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="1003" class="Symbol">(</a><a id="1004" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1006" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="1008" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1010" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a><a id="1012" class="Symbol">)</a> <a id="1014" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">≈˘⟨</a> <a id="1018" href="Algebra.Structures.html#1569" class="Function">assoc</a> <a id="1024" href="strict-group-theory.html#903" class="Bound">x</a> <a id="1026" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1028" class="Symbol">(</a><a id="1029" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1031" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a><a id="1033" class="Symbol">)</a> <a id="1035" href="Relation.Binary.Reasoning.PartialSetoid.html#898" class="Function">⟩</a>
+  <a id="1039" class="Symbol">(</a><a id="1040" href="strict-group-theory.html#903" class="Bound">x</a> <a id="1042" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="1044" href="strict-group-theory.html#905" class="Bound">y</a><a id="1045" class="Symbol">)</a> <a id="1047" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="1049" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1051" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a> <a id="1054" href="Relation.Binary.Reasoning.PartialSetoid.html#797" class="Function">≈⟨</a> <a id="1057" href="Algebra.Structures.html#1421" class="Function">∙-congʳ</a> <a id="1065" href="strict-group-theory.html#907" class="Bound">eq</a> <a id="1068" href="Relation.Binary.Reasoning.PartialSetoid.html#797" class="Function">⟩</a>
+       <a id="1077" href="strict-group-theory.html#905" class="Bound">y</a>  <a id="1080" href="Algebra.Bundles.html#6533" class="Field Operator">∙</a> <a id="1082" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1084" href="Algebra.Bundles.html#6581" class="Field Operator">⁻¹</a> <a id="1087" href="Relation.Binary.Reasoning.PartialSetoid.html#797" class="Function">≈⟨</a> <a id="1090" href="Algebra.Structures.html#4369" class="Function">inverseʳ</a> <a id="1099" href="strict-group-theory.html#905" class="Bound">y</a> <a id="1101" href="Relation.Binary.Reasoning.PartialSetoid.html#797" class="Function">⟩</a>
+  <a id="1105" href="Algebra.Bundles.html#6559" class="Field">ε</a>              <a id="1120" href="Relation.Binary.Reasoning.Base.Single.html#767" class="Function Operator">∎</a>
+</pre>
+
+<p>
+This works nicely for some small examples but as proofs get more complicated, a lot of the proof becomes moving brackets around and adding units, which can be considered boilerplate and obscures the interesting parts of the proof.
+</p>
+
+<p>
+Instead of tackling these problems in group theory, it is usual to sweep all of these problems under the rug, not write any brackets anywhere, and assume that all the associativity problems could be solved if needed. Luckily for group theorists, it is rarely necessary to worry about these details. Unfortunately if instead we are interested in formalising some group theory, in a proof assistant such as <a href="https://github.com/agda/agda">Agda</a>, then this all becomes very necessary, as the computer does not trust us that all the associativity problems are unnecessary.
+</p>
+
+<p>
+In this post, a method in which this "bracketless group theory" can be written in a proof assistant is presented, and some of the difficulties with this are described.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60d5257" class="outline-2">
+<h2 id="org60d5257">The Idea</h2>
+<div class="outline-text-2" id="text-org60d5257">
+<p>
+The key concept that will be used is that there are two different types of equality in Type Theory (which is the perspective taken for this post). The first type is propositional equality, which is written as <code>≈</code> above. <code>A ≈ B</code> effectively means that we can prove that <code>A</code> and <code>B</code> are equal. The second type of equality is definitional equality or judgmental equality. This is stronger than propositional equality and if two objects are definitionally equal it means that they are the same objects (or at least have the same normal form in the type theory).
+</p>
+
+<p>
+What we had above was a propositional equality between
+</p>
+<pre class="example">
+(x ∙ y) ∙ z
+</pre>
+<p>
+and
+</p>
+<pre class="example">
+x ∙ (y ∙ z)
+</pre>
+<p>
+when what we really want is for this to be a definitional equality, which would allow us to treat these as the same object. We say that we have <i>strict associativity</i> exactly when this equation holds by definition. Luckily there is such a structure that has this property, namely function composition. Suppose we have functions <code>f g h : X → X</code>. Then we have
+</p>
+<pre class="example">
+(f ∘ g) ∘ h = f ∘ (g ∘ h) = λ x → f (g (h x))
+</pre>
+<p>
+Therefore we can work with functions without ever having to worry about associativity problems. We can also note that we also eliminate the need for any identity laws with functions as for all sets <code>X</code>, we have an identity function <code>id : X → X</code> with
+</p>
+<pre class="example">
+f ∘ id = id ∘ f = f
+</pre>
+
+<p>
+We say a structure has <i>strict units</i> or is <i>strictly unital</i> when this property holds.
+</p>
+</div>
+
+<div id="outline-container-orgbe052e4" class="outline-3">
+<h3 id="orgbe052e4">Cayley's Theorem</h3>
+<div class="outline-text-3" id="text-orgbe052e4">
+<p>
+Cayley's theorem gives us a translation from group operations to function composition. To understand what is says, we first need to introduce the notion of the symmetric group.
+</p>
+
+<div class="definition">
+<p>
+Given a set <code>X</code>, the symmetric group on <code>X</code>, written <code>Sym(X)</code>, is the group whose elements are permutations on <code>X</code>, operation is function composition, and inverses and identity are given by inverse and identity permutations.
+</p>
+
+</div>
+
+<p>
+The important thing of note here is that the group operation in the symmetric group is function composition, just as we wanted. We can now state Cayley's Theorem:
+</p>
+
+<div class="theorem">
+<p>
+Given a group <code>G</code>, there is an embedding (an injective homomorphism) from <code>G</code> into <code>Sym(G)</code>.
+</p>
+
+</div>
+
+<div class="proof">
+<p>
+Sketch: Define a homomorphism <code>⟦_⟧ : G → Sym(G)</code> by <code>⟦ g ⟧ = λ x → g ∙ x</code>. It is then routine to show that <code>⟦_⟧</code> is well defined (<code>⟦ g ⟧</code> is a permutation for each <code>g</code>), is a homomorphism, and is injective.
+</p>
+
+</div>
+
+<p>
+Suppose we want to prove <code>e₁ ≈ e₂</code>. The plan is to do the following steps.
+</p>
+
+<ul class="org-ul">
+<li>Embed <code>e₁</code> and <code>e₂</code> into <code>Sym(G)</code> with <code>⟦_⟧</code></li>
+<li>Prove that <code>⟦ e₁ ⟧</code> and <code>⟦ e₂ ⟧</code> are equal as functions, with the benefit that function composition is strictly associative and unital.</li>
+<li>Use injectivity to get that <code>e₁ ≈ e₂</code></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgfb64e8c" class="outline-2">
+<h2 id="orgfb64e8c">Implementation</h2>
+<div class="outline-text-2" id="text-orgfb64e8c">
+<p>
+All the ideas above have been implemented in <a href="https://github.com/alexarice/Groups">https://github.com/alexarice/Groups</a>. The corresponding version of the proof in the introduction is:
+</p>
+
+<pre class="example">
+identity-is-unique-strong : ∀ a b → a ∙ b ≈ b → a ≈ ε
+identity-is-unique-strong a b p = begin⟨ ⟦⟧ ⟩
+⟦ a ⟧                       ∘⟨⟩≣˘⟨ invʳ ⟦ b ⟧ ⟩
+⟨ ⟦ a ⟧ ∘ ⟦ b ⟧ ⟩∘ inv ⟦ b ⟧   ≣⟨ ⟨ ⟦⟧ ⟩⦅ p ⦆ ⟩
+⟨ ⟦ b ⟧ ∘ inv ⟦ b ⟧           ⟩≣⟨ invʳ ⟦ b ⟧ ⟩
+id                              ∎
+</pre>
+
+<p>
+As a second example, here is the proof of left cancellation:
+</p>
+
+<pre class="example">
+left-cancellation : ∀ g h x → x ∙ g ≈ x ∙ h → g ≈ h
+left-cancellation g h x p = begin⟨ ⟦⟧ ⟩
+  ⟨⟩∘ ⟦ g ⟧ ≣˘⟨ invˡ ⟦ x ⟧ ⟩
+  inv ⟦ x ⟧ ∘⟨ ⟦ x ⟧ ∘ ⟦ g ⟧ ⟩≣⟨ ⟨ ⟦⟧ ⟩⦅ p ⦆ ⟩
+  ⟨ inv ⟦ x ⟧ ∘ ⟦ x ⟧ ⟩∘ ⟦ h ⟧ ≣⟨ invˡ ⟦ x ⟧ ⟩
+  ⟦ h ⟧ ∎
+</pre>
+
+<p>
+and that the inverse operation is an anti homomorphism on the group operation:
+</p>
+
+<pre class="example">
+inv-of-composite : ∀ g h → (g ∙ h) ⁻¹ ≈ h ⁻¹ ∙ g ⁻¹
+inv-of-composite g h = begin⟨ ⟦⟧ ⟩
+  inv (⟦ g ⟧ ∘ ⟦ h ⟧) ∘⟨⟩≣˘⟨ invʳ ⟦ g ⟧ ⟩
+  inv (⟦ g ⟧ ∘ ⟦ h ⟧) ∘ ⟦ g ⟧ ∘⟨⟩∘ inv ⟦ g ⟧ ≣˘⟨ invʳ ⟦ h ⟧ ⟩
+  ⟨ inv (⟦ g ⟧ ∘ ⟦ h ⟧) ∘ (⟦ g ⟧ ∘ ⟦ h ⟧) ⟩∘ inv ⟦ h ⟧ ∘ inv ⟦ g ⟧
+    ≣⟨ invˡ (⟦ g ⟧ ∘ ⟦ h ⟧) ⟩
+  inv ⟦ h ⟧ ∘ inv ⟦ g ⟧ ∎
+</pre>
+
+<p>
+The rest of the post will be explaining the code above.
+</p>
+</div>
+
+<div id="outline-container-org5f46366" class="outline-3">
+<h3 id="org5f46366">Elimination of cong</h3>
+<div class="outline-text-3" id="text-org5f46366">
+<p>
+Perhaps the most obvious change from the original code is the addition of the angle brackets <code>⟨</code> and <code>⟩</code>. These allow us to apply an equality to a part of the expression we are working on. Instead of having to manually use a <code>cong</code> function to manipulate the equality (as well as making it unreadable), we instead use the syntax above which allows the appropriate equalities to be automatically put in.
+</p>
+
+<p>
+This is made possible due to the simplicity of the expressions. As each expression is now effectively a finite list of functions, it becomes very easy to split it into a focus, which we manipulate, as well as expressions that occur before and after the focus.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org573d583" class="outline-3">
+<h3 id="org573d583">Strict associativity and unitality</h3>
+<div class="outline-text-3" id="text-org573d583">
+<p>
+The above proof shows that the need for associativity operations has been removed. The result of the first equality in the proof is:
+</p>
+
+<pre class="example">
+⟦ a ⟧ ∘ (⟦ b ⟧ ∘ inv ⟦ b ⟧)
+</pre>
+
+<p>
+and yet in the next line we treat it as:
+</p>
+
+<pre class="example">
+(⟦ a ⟧ ∘ ⟦ b ⟧) ∘ inv ⟦ b ⟧
+</pre>
+
+<p>
+without telling Agda how to deal with this. This is possible as the terms have the same normal form (this is not actually true, see <a href="#orga2677cc">here</a>).
+</p>
+
+<p>
+We can also see that unitality has been taken care of. In the first line it has been implicitly assumed that an identity can be inserted on the right of the expression.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orga2677cc" class="outline-3">
+<h3 id="orga2677cc">Equality between functions</h3>
+<div class="outline-text-3" id="text-orga2677cc">
+<p>
+The choice of equality between functions is crucial to making this syntax work. The complication is that we have said function composition is strictly associative but glossed over that we are working with permutations or invertible functions.
+</p>
+
+<p>
+Above, the <code>∘</code> operator is not just composition of functions, but is composition of invertible functions, which joins the proofs that each component is invertible to get a proof that the whole composite is invertible. It turns out this is <i>not</i> a strictly associative operation. However if we make sure we only compare the function components of the invertible functions, then strict associativity returns.
+</p>
+
+<p>
+This would lead us to the following definition of equality between invertible functions.
+</p>
+
+<pre class="example">
+_∼_ : Sym → Sym → Set
+f ∼ g = to f ≃ to g
+</pre>
+
+<p>
+Where Sym is the type of permutations on the group and <code>≃</code> is pointwise equality of functions.
+</p>
+
+<p>
+This has the advantage that it does not remember any of the invertibility data and so we can have all the nice features mentioned above. However, it turns out that this forgets too much invertibility data, in that if the implementation is made with this equality, then Agda will complain everywhere about implicit arguments that it cannot resolve. The next thing we might try is to remember the invertibility data but do not check whether it is equal. This leads to the following definition.
+</p>
+
+<pre class="example">
+record SymEq (f g : Sym) : Set where
+  field
+    eq : to f ≃ to g
+
+_≣_ : Sym → Sym → Set
+_≣_ = SymEq
+</pre>
+
+<p>
+This ends up being a nice form of equality which we use to define the symmetric group. Unfortunately, it runs into problems with invertibility data not lining up if we try to use it in the syntax above. It turns out we need another type of equality, where we only remember the invertibility data for the second argument. This clears all the implicit argument problems without introducing any associativity problems.
+</p>
+
+<pre class="example">
+record PartSymEq (f : G ⟶ G) (g : Sym) : Set where
+  field
+    peq : f ≃ to g
+
+_≣'_ : Sym → Sym → Set
+f ≣' g = PartSymEq (to f) g
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org9d8c55b" class="outline-3">
+<h3 id="org9d8c55b">Dealing with homomorphisms</h3>
+<div class="outline-text-3" id="text-org9d8c55b">
+<p>
+So far we have not covered the last step of the proof strategy, which was using injectivity transform function equality to group element equality. This is a very simple procedure, however it does not usually do what we want. Consider the proof that identities are unique. Injectivity gives us something of the form:
+</p>
+
+<pre class="example">
+⟦ a ⟧ ≣ ⟦ ε ⟧ → a ≈ ε
+</pre>
+
+<p>
+but what we actually wanted was:
+</p>
+
+<pre class="example">
+⟦ a ⟧ ≣ id → a ≈ ε
+</pre>
+
+<p>
+We also have the same problem going the opposite direction. In the proof we have an argument of the form:
+</p>
+
+<pre class="example">
+a ∙ b ≈ b
+</pre>
+
+<p>
+If were naively transport this using the inclusion we would get:
+</p>
+
+<pre class="example">
+⟦ a ∙ b ⟧ ≣ ⟦ b ⟧
+</pre>
+
+<p>
+when what we really wanted was:
+</p>
+
+<pre class="example">
+⟦ a ⟧ ∘ ⟦ b ⟧ ≣ ⟦ b ⟧
+</pre>
+
+<p>
+The proofs that these imply each other are not too difficult but applying them to each case is tedious and makes the proofs more convoluted which defeats the original purpose of this construction. Therefore two reflection helpers have been made to automate this process. The first is <code>⟨_⟩⦅_⦆</code>, which solves the second problem. This takes a homomorphism and an equality and applies as many homomorphism rules as possible to the equality. It does this by inspecting the terms of the left and right hand side using reflection and using this to work out which rules to apply.
+</p>
+
+<pre class="example">
+test : ∀ a b → a ≈ b → ⟦ a ⟧ ≣ ⟦ b ⟧
+test a b p = ⟨ ⟦⟧ ⟩⦅ p ⦆
+
+test2 : ∀ a b → a ∙ b ≈ b → ⟦ a ⟧ ∘ ⟦ b ⟧ ≣ ⟦ b ⟧
+test2 a b p = ⟨ ⟦⟧ ⟩⦅ p ⦆
+
+test3 : ∀ x y z
+      → x ∙ (y ⁻¹ ∙ ε) ≈ z ∙ z
+      → ⟦ x ⟧ ∘ (inv ⟦ y ⟧ ∘ e) ≣ ⟦ z ⟧ ∘ ⟦ z ⟧
+test3 x y z p = ⟨ ⟦⟧ ⟩⦅ p ⦆
+</pre>
+
+<p>
+The second reflection helper is wrapped in the <code>begin⟨_⟩_</code> function. This takes care of the first problem we had, again by using reflection to find the term needed and applying the appropriate rules to get the given proof in the form needed.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org21eab3a" class="outline-2">
+<h2 id="org21eab3a">Limitations</h2>
+<div class="outline-text-2" id="text-org21eab3a">
+<p>
+There are currently a few limitations with this system:
+</p>
+<ul class="org-ul">
+<li>The syntax is not ideal. One problem is that it currently seems necessary to pass the homomorphism into the reflection helper each time it is used though this is probably fixable. Something which is less fixable is the angle bracket syntax for dealing with congs being "stuck to" the equality symbol. This is caused by Agda syntax requiring that you alternate holes and non holes, where we would like to be able to put two non holes next to each other.</li>
+<li>The reflection helpers are very slow. In the current version of Agda (2.6.1), compiling these files is very slow which makes them painful to work with.</li>
+<li>Agda is not great at telling you what should go in a hole with this syntax. Where the reflection helpers are used, it will tell you it wants something of a type labelled by some mysterious number. Even when this isn't the case, the use of records for the permutations sometimes causes a mess when one tries to solve a hole.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0d19458" class="outline-2">
+<h2 id="org0d19458">Thanks</h2>
+<div class="outline-text-2" id="text-org0d19458">
+<p>
+Thanks goes to Martin Escardo, who suggested the possibility of using Cayley's Theorem and convinced me to write this post.
+</p>
+</div>
+</div>
+</div>
+</body>
+</html>
