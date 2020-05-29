@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Groups.Symmetric</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+
+<link href="/style-posts.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/Agda.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+<h1>Groups.Symmetric</h1>
+<p>In this file we show that given a set X, we can form a group, using the special definition of permutation from <code>Groups.Function.Inverse</code> which is strictly associative and unital.</p>
+
+<p><details>
+<summary>Module header</summary></p>
+
+<pre class="Agda"><a id="233" class="Symbol">{-#</a> <a id="237" class="Keyword">OPTIONS</a> <a id="245" class="Pragma">--safe</a> <a id="252" class="Pragma">--cubical</a> <a id="262" class="Symbol">#-}</a>
+
+<a id="267" class="Keyword">module</a> <a id="274" href="Groups.Symmetric.html" class="Module">Groups.Symmetric</a> <a id="291" class="Keyword">where</a>
+
+<a id="298" class="Keyword">open</a> <a id="303" class="Keyword">import</a> <a id="310" href="Cubical.Foundations.Prelude.html" class="Module">Cubical.Foundations.Prelude</a>
+<a id="338" class="Keyword">open</a> <a id="343" class="Keyword">import</a> <a id="350" href="Cubical.Structures.Group.html" class="Module">Cubical.Structures.Group</a>
+<a id="375" class="Keyword">open</a> <a id="380" class="Keyword">import</a> <a id="387" href="Groups.Function.Inverse.html" class="Module">Groups.Function.Inverse</a>
+
+<a id="412" class="Keyword">private</a>
+  <a id="422" class="Keyword">variable</a>
+    <a id="435" href="Groups.Symmetric.html#435" class="Generalizable">ℓ</a> <a id="437" href="Groups.Symmetric.html#437" class="Generalizable">ℓ′</a> <a id="440" class="Symbol">:</a> <a id="442" href="Agda.Primitive.html#423" class="Postulate">Level</a>
+</pre>
+
+<p></details></p>
+
+<pre class="Agda"><a id="Symmetric-Group"></a><a id="473" href="Groups.Symmetric.html#473" class="Function">Symmetric-Group</a> <a id="489" class="Symbol">:</a> <a id="491" class="Symbol">(</a><a id="492" href="Groups.Symmetric.html#492" class="Bound">X</a> <a id="494" class="Symbol">:</a> <a id="496" href="Cubical.Core.Primitives.html#1259" class="Function">Type</a> <a id="501" href="Groups.Symmetric.html#435" class="Generalizable">ℓ</a><a id="502" class="Symbol">)</a> <a id="504" class="Symbol">→</a> <a id="506" href="Cubical.Foundations.Prelude.html#7968" class="Function">isSet</a> <a id="512" href="Groups.Symmetric.html#492" class="Bound">X</a> <a id="514" class="Symbol">→</a> <a id="516" href="Cubical.Structures.Group.html#1364" class="Function">Group</a>
+<a id="522" href="Groups.Symmetric.html#473" class="Function">Symmetric-Group</a> <a id="538" href="Groups.Symmetric.html#538" class="Bound">X</a> <a id="540" href="Groups.Symmetric.html#540" class="Bound">isSetX</a> <a id="547" class="Symbol">=</a>
+  <a id="551" class="Comment">-- Carrier</a>
+  <a id="564" href="Groups.Function.Inverse.html#654" class="Function">Inverse</a> <a id="572" href="Groups.Symmetric.html#538" class="Bound">X</a> <a id="574" href="Groups.Symmetric.html#538" class="Bound">X</a> <a id="576" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a>
+  <a id="580" class="Comment">-- Operation</a>
+  <a id="595" href="Groups.Function.Inverse.html#2738" class="Function Operator">_∘_</a> <a id="599" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a>
+  <a id="603" class="Comment">-- Semigroup axioms</a>
+  <a id="625" class="Symbol">(</a><a id="626" href="Groups.Function.Inverse.html#1278" class="Function">isSetInv</a> <a id="635" href="Groups.Symmetric.html#540" class="Bound">isSetX</a> <a id="642" href="Groups.Symmetric.html#540" class="Bound">isSetX</a> <a id="649" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a> <a id="651" href="Groups.Function.Inverse.html#3105" class="Function">inv-comp-assoc</a><a id="665" class="Symbol">)</a> <a id="667" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a>
+  <a id="671" class="Comment">-- Unit</a>
+  <a id="681" href="Groups.Function.Inverse.html#2949" class="Function">id-inv</a> <a id="688" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a> <a id="690" class="Symbol">(λ</a> <a id="693" href="Groups.Symmetric.html#693" class="Bound">f</a> <a id="695" class="Symbol">→</a> <a id="697" class="Symbol">(</a><a id="698" href="Groups.Function.Inverse.html#3254" class="Function">id-unit-left</a> <a id="711" href="Groups.Symmetric.html#693" class="Bound">f</a><a id="712" class="Symbol">)</a> <a id="714" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a> <a id="716" class="Symbol">(</a><a id="717" href="Groups.Function.Inverse.html#3327" class="Function">id-unit-right</a> <a id="731" href="Groups.Symmetric.html#693" class="Bound">f</a><a id="732" class="Symbol">))</a> <a id="735" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a>
+  <a id="739" class="Comment">-- Inverses</a>
+  <a id="753" class="Symbol">(λ</a> <a id="756" href="Groups.Symmetric.html#756" class="Bound">f</a> <a id="758" class="Symbol">→</a> <a id="760" class="Symbol">(</a><a id="761" href="Groups.Function.Inverse.html#3458" class="Function">inv-inv</a> <a id="769" href="Groups.Symmetric.html#756" class="Bound">f</a><a id="770" class="Symbol">)</a> <a id="772" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a> <a id="774" class="Symbol">((</a><a id="776" href="Groups.Function.Inverse.html#3733" class="Function">inv-inv-right</a> <a id="790" href="Groups.Symmetric.html#540" class="Bound">isSetX</a> <a id="797" href="Groups.Symmetric.html#756" class="Bound">f</a><a id="798" class="Symbol">)</a> <a id="800" href="Agda.Builtin.Sigma.html#236" class="InductiveConstructor Operator">,</a> <a id="802" href="Groups.Function.Inverse.html#3541" class="Function">inv-inv-left</a> <a id="815" href="Groups.Symmetric.html#540" class="Bound">isSetX</a> <a id="822" href="Groups.Symmetric.html#756" class="Bound">f</a><a id="823" class="Symbol">))</a>
+</pre>
+
+</div>
+
+</body>
+</html>

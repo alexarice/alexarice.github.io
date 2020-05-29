@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strict-Group-Theory-UF</title>
+<link href="/style.css" rel="stylesheet" type="text/css" />
+
+<link href="/style-posts.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/Agda.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="content">
+<h1>Strict-Group-Theory-UF</h1>
+<!--
+<pre class="Agda"><a id="14" class="Symbol">{-#</a> <a id="18" class="Keyword">OPTIONS</a> <a id="26" class="Pragma">--safe</a> <a id="33" class="Pragma">--cubical</a> <a id="43" class="Symbol">#-}</a>
+</pre>-->
+
+<p>Strictly associative and unital inverses are defined in</p>
+
+<pre class="Agda"><a id="121" class="Keyword">import</a> <a id="128" href="Groups.Function.Inverse.html" class="Module">Groups.Function.Inverse</a>
+</pre>
+
+<p>Then we define the Symmetric group.</p>
+
+<pre class="Agda"><a id="202" class="Keyword">import</a> <a id="209" href="Groups.Symmetric.html" class="Module">Groups.Symmetric</a>
+</pre>
+
+<p>We define an inclusion from a group to its symmetric group as in Cayley&#8217;s Theorem.</p>
+
+<pre class="Agda"><a id="323" class="Keyword">import</a> <a id="330" href="Groups.Symmetric.Inclusion.html" class="Module">Groups.Symmetric.Inclusion</a>
+</pre>
+
+<p>and we define the representable subgroup of the Symmetric group and show it is isomorphic and hence equal to the original group.</p>
+
+<pre class="Agda"><a id="500" class="Keyword">import</a> <a id="507" href="Groups.Symmetric.Representable.html" class="Module">Groups.Symmetric.Representable</a>
+</pre>
+
+<p>and lastly the use of this is demonstrated.</p>
+
+<pre class="Agda"><a id="596" class="Keyword">import</a> <a id="603" href="Groups.Properties.Test.html" class="Module">Groups.Properties.Test</a>
+</pre>
+
+</div>
+
+</body>
+</html>
