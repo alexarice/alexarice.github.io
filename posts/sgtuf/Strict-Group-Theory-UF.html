@@ -18,34 +18,42 @@
 <pre class="Agda"><a id="87" class="Symbol">{-#</a> <a id="91" class="Keyword">OPTIONS</a> <a id="99" class="Pragma">--safe</a> <a id="106" class="Pragma">--cubical</a> <a id="116" class="Symbol">#-}</a>
 </pre>-->
 
-<p>Strictly associative and unital inverses are defined in</p>
+<p>This post is a follow up to my previous post on this topic found <a href="../strict-group-theory.html">here</a>. The idea of this post was to introduce an environment where we could prove equalities about groups without having to manually move around brackets. In other words, the associators <code>assoc : (a · b) · c ≡ a · (b · c)</code> and unitors <code>a · ₁ ≡ ₁ · a ≡ a</code> are given by reflexivity. The underlying idea was to use Cayley&#8217;s Theorem, that says that any Group embeds into it&#8217;s symmetric group. As the symmetric group is based on functions and their compositions, these structures are automatically strictly associative and unital by the nature of how function composition reduces in a Agda.</p>
 
-<pre class="Agda"><a id="194" class="Keyword">import</a> <a id="201" href="Groups.Function.Inverse.html" class="Module">Groups.Function.Inverse</a>
+<p>Unfortunately this system introduced another problem. To take advantage of these strict features, we constantly need to transport equalities along this embedding, which is possible, though is not much easier than the original problem we were trying to solve. In the original post, we add in reflection helpers that automatically apply all the homomorphism rules. While this works, it seems quite messy and has problems such as not being able to infer the types of metavariables.</p>
+
+<p>This sort of problem is one of things that univalence can make very easy. Instead of having to worry about how to move these equalities along an embedding, we can instead obtain an equality and transport the whole result we were instending to prove. To achieve this we need to obtain an equivalence between our original group and a group with strict associativity and unitality. Therefore, instead of considering the symmetric group and associated embedding, we instead consider the &#8220;representable&#8221; subgroup, the subgroup of the symmetric group lying in the image of the embedding. The embedding then induces an isomorphism between the original group and the represetable symmetric group. Using the structure identity principle, this isomorphism is sufficient to obtain the needed equivalence.</p>
+
+<p>There are some technicalities that we need to consider. Firstly, in the original presentation, we considered a custom setoid equality between invertible functions which only checked whether the forward direction functions were equal. We then used a trick to maintain the strict associativity of the underlying function composition. This was done effectively by not requiring that invertibility data matched up. With this univalent approach, this is no longer sufficient. We need a type of permutations for which the regular equality is strictily associative and unitial. This is done in the following file, which contains and explaination on how these are constructed.</p>
+
+<pre class="Agda"><a id="2764" class="Keyword">import</a> <a id="2771" href="Groups.Function.Inverse.html" class="Module">Groups.Function.Inverse</a>
 </pre>
 
-<p>Then we define the Symmetric group.</p>
+<p>These inverses are then used to define the symmetric group.</p>
 
-<pre class="Agda"><a id="275" class="Keyword">import</a> <a id="282" href="Groups.Symmetric.html" class="Module">Groups.Symmetric</a>
+<pre class="Agda"><a id="2869" class="Keyword">import</a> <a id="2876" href="Groups.Symmetric.html" class="Module">Groups.Symmetric</a>
 </pre>
 
-<p>We define an inclusion from a group to its symmetric group as in Cayley&#8217;s Theorem.</p>
+<p>We define an inclusion from a group to its symmetric group as in Cayley&#8217;s Theorem. We further show that this is a homomorphism and is injective.</p>
 
-<pre class="Agda"><a id="396" class="Keyword">import</a> <a id="403" href="Groups.Symmetric.Inclusion.html" class="Module">Groups.Symmetric.Inclusion</a>
+<pre class="Agda"><a id="3052" class="Keyword">import</a> <a id="3059" href="Groups.Symmetric.Inclusion.html" class="Module">Groups.Symmetric.Inclusion</a>
 </pre>
 
-<p>and we define the representable subgroup of the Symmetric group and show it is isomorphic and hence equal to the original group.</p>
+<p>Next we need to define the representable subgroup of the symmetric group. Here we run into a similar problem as we did for inverses in that the obvious definition of an element being representable if there is an element of the original group that maps to it will not compose in a strictly associative and unital way (in fact it effectively composes in the same way as the original group). To get round this, we define a different charactarisation of representability. The details of this are in the following file.</p>
 
-<pre class="Agda"><a id="573" class="Keyword">import</a> <a id="580" href="Groups.Symmetric.Representable.html" class="Module">Groups.Symmetric.Representable</a>
+<pre class="Agda"><a id="3615" class="Keyword">import</a> <a id="3622" href="Groups.Symmetric.Representable.html" class="Module">Groups.Symmetric.Representable</a>
 </pre>
 
-<p>A reasoning module is made:</p>
+<p>In this file we also define the induced isomophism between a group and its representable symmetric group. Further we apply the structure identity principle in this file.</p>
 
-<pre class="Agda"><a id="653" class="Keyword">import</a> <a id="660" href="Groups.Reasoning.html" class="Module">Groups.Reasoning</a>
+<p>The next file defines a reasoning module for working with this new machinery. Similarly to the previous system, once everything is strictly associative and unital, it becomes easy to define syntax that allows us to also get rid of the <code>cong</code> operation. The main part of this module is the <code>strictify</code> function. This function takes a property of groups, and gives a proof of this property for a group <code>𝓖</code> from a proof of the property on the representable symmetric group on <code>𝓖</code>.</p>
+
+<pre class="Agda"><a id="4316" class="Keyword">import</a> <a id="4323" href="Groups.Reasoning.html" class="Module">Groups.Reasoning</a>
 </pre>
 
 <p>and lastly the use of this is demonstrated.</p>
 
-<pre class="Agda"><a id="735" class="Keyword">import</a> <a id="742" href="Groups.Properties.Test.html" class="Module">Groups.Properties.Test</a>
+<pre class="Agda"><a id="4398" class="Keyword">import</a> <a id="4405" href="Groups.Properties.Test.html" class="Module">Groups.Properties.Test</a>
 </pre>
 
 </div>
