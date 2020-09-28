@@ -49,6 +49,9 @@ h1 {
   color: #FF79C6;
   font-size-adjust: 0.45; }
 
+ul {
+  padding-right: 40px; }
+
 pre.example {
   margin: 20px 20px; }
 
