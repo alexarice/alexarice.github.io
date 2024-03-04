@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Catt.Syntax.Bundles</title><link rel="stylesheet" href="/css/Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="Catt.Syntax.Bundles.html" class="Module">Catt.Syntax.Bundles</a> <a id="28" class="Keyword">where</a>
+
+<a id="35" class="Keyword">open</a> <a id="40" class="Keyword">import</a> <a id="47" href="Catt.Prelude.html" class="Module">Catt.Prelude</a>
+<a id="60" class="Keyword">open</a> <a id="65" class="Keyword">import</a> <a id="72" href="Catt.Syntax.html" class="Module">Catt.Syntax</a>
+
+<a id="85" class="Keyword">record</a> <a id="CTX"></a><a id="92" href="Catt.Syntax.Bundles.html#92" class="Record">CTX</a> <a id="96" class="Symbol">:</a> <a id="98" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="102" class="Keyword">where</a>
+  <a id="110" class="Keyword">constructor</a> <a id="&lt;_&gt;c"></a><a id="122" href="Catt.Syntax.Bundles.html#122" class="InductiveConstructor Operator">&lt;_&gt;c</a>
+  <a id="129" class="Keyword">field</a>
+    <a id="139" class="Symbol">{</a><a id="CTX.ctx-n"></a><a id="140" href="Catt.Syntax.Bundles.html#140" class="Field">ctx-n</a><a id="145" class="Symbol">}</a> <a id="147" class="Symbol">:</a> <a id="149" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="CTX.ctx"></a><a id="155" href="Catt.Syntax.Bundles.html#155" class="Field">ctx</a> <a id="159" class="Symbol">:</a> <a id="161" href="Catt.Syntax.Base.html#94" class="Datatype">Ctx</a> <a id="165" href="Catt.Syntax.Bundles.html#140" class="Field">ctx-n</a>
+
+<a id="172" class="Keyword">open</a> <a id="177" href="Catt.Syntax.Bundles.html#92" class="Module">CTX</a> <a id="181" class="Keyword">public</a>
+
+<a id="189" class="Keyword">record</a> <a id="TY"></a><a id="196" href="Catt.Syntax.Bundles.html#196" class="Record">TY</a> <a id="199" class="Symbol">:</a> <a id="201" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="205" class="Keyword">where</a>
+  <a id="213" class="Keyword">constructor</a> <a id="&lt;_&gt;ty"></a><a id="225" href="Catt.Syntax.Bundles.html#225" class="InductiveConstructor Operator">&lt;_&gt;ty</a>
+  <a id="233" class="Keyword">field</a>
+    <a id="243" class="Symbol">{</a><a id="TY.ty-ctx-n"></a><a id="244" href="Catt.Syntax.Bundles.html#244" class="Field">ty-ctx-n</a><a id="252" class="Symbol">}</a> <a id="254" class="Symbol">:</a> <a id="256" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="TY.ty"></a><a id="262" href="Catt.Syntax.Bundles.html#262" class="Field">ty</a> <a id="265" class="Symbol">:</a> <a id="267" href="Catt.Syntax.Base.html#113" class="Datatype">Ty</a> <a id="270" href="Catt.Syntax.Bundles.html#244" class="Field">ty-ctx-n</a>
+
+<a id="280" class="Keyword">open</a> <a id="285" href="Catt.Syntax.Bundles.html#196" class="Module">TY</a> <a id="288" class="Keyword">public</a>
+
+<a id="296" class="Keyword">record</a> <a id="TM"></a><a id="303" href="Catt.Syntax.Bundles.html#303" class="Record">TM</a> <a id="306" class="Symbol">:</a> <a id="308" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="312" class="Keyword">where</a>
+  <a id="320" class="Keyword">constructor</a> <a id="&lt;_&gt;tm"></a><a id="332" href="Catt.Syntax.Bundles.html#332" class="InductiveConstructor Operator">&lt;_&gt;tm</a>
+  <a id="340" class="Keyword">field</a>
+    <a id="350" class="Symbol">{</a><a id="TM.tm-ctx-n"></a><a id="351" href="Catt.Syntax.Bundles.html#351" class="Field">tm-ctx-n</a><a id="359" class="Symbol">}</a> <a id="361" class="Symbol">:</a> <a id="363" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="TM.tm"></a><a id="369" href="Catt.Syntax.Bundles.html#369" class="Field">tm</a> <a id="372" class="Symbol">:</a> <a id="374" href="Catt.Syntax.Base.html#131" class="Datatype">Tm</a> <a id="377" href="Catt.Syntax.Bundles.html#351" class="Field">tm-ctx-n</a>
+
+<a id="387" class="Keyword">open</a> <a id="392" href="Catt.Syntax.Bundles.html#303" class="Module">TM</a> <a id="395" class="Keyword">public</a>
+
+<a id="403" class="Keyword">record</a> <a id="SUB"></a><a id="410" href="Catt.Syntax.Bundles.html#410" class="Record">SUB</a> <a id="414" class="Symbol">:</a> <a id="416" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="420" class="Keyword">where</a>
+  <a id="428" class="Keyword">constructor</a> <a id="&lt;_&gt;s"></a><a id="440" href="Catt.Syntax.Bundles.html#440" class="InductiveConstructor Operator">&lt;_&gt;s</a>
+  <a id="447" class="Keyword">field</a>
+    <a id="457" class="Symbol">{</a><a id="SUB.s-ctx-1-n"></a><a id="458" href="Catt.Syntax.Bundles.html#458" class="Field">s-ctx-1-n</a><a id="467" class="Symbol">}</a> <a id="469" class="Symbol">:</a> <a id="471" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="477" class="Symbol">{</a><a id="SUB.s-ctx-2-n"></a><a id="478" href="Catt.Syntax.Bundles.html#478" class="Field">s-ctx-2-n</a><a id="487" class="Symbol">}</a> <a id="489" class="Symbol">:</a> <a id="491" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="497" class="Symbol">{</a><a id="SUB.s-ty"></a><a id="498" href="Catt.Syntax.Bundles.html#498" class="Field">s-ty</a><a id="502" class="Symbol">}</a> <a id="504" class="Symbol">:</a> <a id="506" href="Catt.Syntax.Base.html#113" class="Datatype">Ty</a> <a id="509" href="Catt.Syntax.Bundles.html#478" class="Field">s-ctx-2-n</a>
+    <a id="SUB.sub"></a><a id="523" href="Catt.Syntax.Bundles.html#523" class="Field">sub</a> <a id="527" class="Symbol">:</a> <a id="529" href="Catt.Syntax.Base.html#149" class="Datatype">Sub</a> <a id="533" href="Catt.Syntax.Bundles.html#458" class="Field">s-ctx-1-n</a> <a id="543" href="Catt.Syntax.Bundles.html#478" class="Field">s-ctx-2-n</a> <a id="553" href="Catt.Syntax.Bundles.html#498" class="Field">s-ty</a>
+
+<a id="559" class="Keyword">open</a> <a id="564" href="Catt.Syntax.Bundles.html#410" class="Module">SUB</a> <a id="568" class="Keyword">public</a>
+
+<a id="576" class="Keyword">record</a> <a id="SUB′"></a><a id="583" href="Catt.Syntax.Bundles.html#583" class="Record">SUB′</a> <a id="588" class="Symbol">(</a><a id="589" href="Catt.Syntax.Bundles.html#589" class="Bound">m</a> <a id="591" class="Symbol">:</a> <a id="593" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a><a id="594" class="Symbol">)</a> <a id="596" class="Symbol">:</a> <a id="598" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="602" class="Keyword">where</a>
+  <a id="610" class="Keyword">constructor</a> <a id="&lt;_&gt;s′"></a><a id="622" href="Catt.Syntax.Bundles.html#622" class="InductiveConstructor Operator">&lt;_&gt;s′</a>
+  <a id="630" class="Keyword">field</a>
+    <a id="640" class="Symbol">{</a><a id="SUB′.s-n′"></a><a id="641" href="Catt.Syntax.Bundles.html#641" class="Field">s-n′</a><a id="645" class="Symbol">}</a> <a id="647" class="Symbol">:</a> <a id="649" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="655" class="Symbol">{</a><a id="SUB′.s-ty′"></a><a id="656" href="Catt.Syntax.Bundles.html#656" class="Field">s-ty′</a><a id="661" class="Symbol">}</a> <a id="663" class="Symbol">:</a> <a id="665" href="Catt.Syntax.Base.html#113" class="Datatype">Ty</a> <a id="668" href="Catt.Syntax.Bundles.html#589" class="Bound">m</a>
+    <a id="SUB′.sub′"></a><a id="674" href="Catt.Syntax.Bundles.html#674" class="Field">sub′</a> <a id="679" class="Symbol">:</a> <a id="681" href="Catt.Syntax.Base.html#149" class="Datatype">Sub</a> <a id="685" href="Catt.Syntax.Bundles.html#641" class="Field">s-n′</a> <a id="690" href="Catt.Syntax.Bundles.html#589" class="Bound">m</a> <a id="692" href="Catt.Syntax.Bundles.html#656" class="Field">s-ty′</a>
+
+<a id="699" class="Keyword">open</a> <a id="704" href="Catt.Syntax.Bundles.html#583" class="Module">SUB′</a> <a id="709" class="Keyword">public</a>
+</pre></body></html>

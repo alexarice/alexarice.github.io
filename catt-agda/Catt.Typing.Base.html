@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html><head><meta charset="utf-8"><title>Catt.Typing.Base</title><link rel="stylesheet" href="/css/Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="Catt.Typing.Base.html" class="Module">Catt.Typing.Base</a> <a id="25" class="Keyword">where</a>
+
+<a id="32" class="Keyword">open</a> <a id="37" class="Keyword">import</a> <a id="44" href="Catt.Prelude.html" class="Module">Catt.Prelude</a>
+<a id="57" class="Keyword">open</a> <a id="62" class="Keyword">import</a> <a id="69" href="Catt.Syntax.html" class="Module">Catt.Syntax</a>
+
+<a id="82" class="Keyword">record</a> <a id="Rule"></a><a id="89" href="Catt.Typing.Base.html#89" class="Record">Rule</a> <a id="94" class="Symbol">:</a> <a id="96" href="Agda.Primitive.html#388" class="Primitive">Set</a> <a id="100" class="Keyword">where</a>
+  <a id="108" class="Keyword">field</a>
+    <a id="Rule.len"></a><a id="118" href="Catt.Typing.Base.html#118" class="Field">len</a> <a id="122" class="Symbol">:</a> <a id="124" href="Agda.Builtin.Nat.html#203" class="Datatype">ℕ</a>
+    <a id="Rule.tgtCtx"></a><a id="130" href="Catt.Typing.Base.html#130" class="Field">tgtCtx</a> <a id="137" class="Symbol">:</a> <a id="139" href="Catt.Syntax.Base.html#94" class="Datatype">Ctx</a> <a id="143" href="Catt.Typing.Base.html#118" class="Field">len</a>
+    <a id="Rule.lhs"></a><a id="151" href="Catt.Typing.Base.html#151" class="Field">lhs</a> <a id="155" class="Symbol">:</a> <a id="157" href="Catt.Syntax.Base.html#131" class="Datatype">Tm</a> <a id="160" href="Catt.Typing.Base.html#118" class="Field">len</a>
+    <a id="Rule.rhs"></a><a id="168" href="Catt.Typing.Base.html#168" class="Field">rhs</a> <a id="172" class="Symbol">:</a> <a id="174" href="Catt.Syntax.Base.html#131" class="Datatype">Tm</a> <a id="177" href="Catt.Typing.Base.html#118" class="Field">len</a>
+
+<a id="RuleSet"></a><a id="182" href="Catt.Typing.Base.html#182" class="Function">RuleSet</a> <a id="190" class="Symbol">:</a> <a id="192" href="Agda.Primitive.html#388" class="Primitive">Set₁</a>
+<a id="197" href="Catt.Typing.Base.html#182" class="Function">RuleSet</a> <a id="205" class="Symbol">=</a> <a id="207" href="Catt.Typing.Base.html#89" class="Record">Rule</a> <a id="212" class="Symbol">→</a> <a id="214" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+
+<a id="_∈r_"></a><a id="219" href="Catt.Typing.Base.html#219" class="Function Operator">_∈r_</a> <a id="224" class="Symbol">:</a> <a id="226" href="Catt.Typing.Base.html#89" class="Record">Rule</a> <a id="231" class="Symbol">→</a> <a id="233" href="Catt.Typing.Base.html#182" class="Function">RuleSet</a> <a id="241" class="Symbol">→</a> <a id="243" href="Agda.Primitive.html#388" class="Primitive">Set</a>
+<a id="247" href="Catt.Typing.Base.html#247" class="Bound">r</a> <a id="249" href="Catt.Typing.Base.html#219" class="Function Operator">∈r</a> <a id="252" href="Catt.Typing.Base.html#252" class="Bound">rules</a> <a id="258" class="Symbol">=</a> <a id="260" href="Data.Wrap.html#743" class="Function">Wrap</a> <a id="265" class="Symbol">(λ</a> <a id="268" href="Catt.Typing.Base.html#268" class="Bound">r</a> <a id="270" href="Catt.Typing.Base.html#270" class="Bound">rules</a> <a id="276" class="Symbol">→</a> <a id="278" href="Catt.Typing.Base.html#270" class="Bound">rules</a> <a id="284" href="Catt.Typing.Base.html#268" class="Bound">r</a><a id="285" class="Symbol">)</a> <a id="287" href="Catt.Typing.Base.html#247" class="Bound">r</a> <a id="289" href="Catt.Typing.Base.html#252" class="Bound">rules</a>
+</pre></body></html>
