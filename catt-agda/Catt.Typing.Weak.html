@@ -1,33 +1,35 @@
 <!DOCTYPE HTML>
-<html><head><meta charset="utf-8"><title>Catt.Typing.Weak</title><link rel="stylesheet" href="/css/Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">module</a> <a id="8" href="Catt.Typing.Weak.html" class="Module">Catt.Typing.Weak</a> <a id="25" class="Keyword">where</a>
+<html><head><meta charset="utf-8"><title>Catt.Typing.Weak</title><link rel="stylesheet" href="/css/Agda.css"></head><body><pre class="Agda"><a id="1" class="Keyword">open</a> <a id="6" class="Keyword">import</a> <a id="13" href="Catt.Typing.Rule.html" class="Module">Catt.Typing.Rule</a>
 
-<a id="32" class="Keyword">open</a> <a id="37" class="Keyword">import</a> <a id="44" href="Catt.Prelude.html" class="Module">Catt.Prelude</a>
-<a id="57" class="Keyword">open</a> <a id="62" class="Keyword">import</a> <a id="69" href="Catt.Typing.Rule.html" class="Module">Catt.Typing.Rule</a>
+<a id="31" class="Keyword">module</a> <a id="38" href="Catt.Typing.Weak.html" class="Module">Catt.Typing.Weak</a> <a id="55" class="Symbol">(</a><a id="56" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="60" class="Symbol">:</a> <a id="62" href="Catt.Ops.html#124" class="Function">Op</a><a id="64" class="Symbol">)</a> <a id="66" class="Keyword">where</a>
 
-<a id="Weak-Rules"></a><a id="87" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a> <a id="98" class="Symbol">:</a> <a id="100" href="Catt.Typing.Base.html#182" class="Function">RuleSet</a>
-<a id="108" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a> <a id="119" href="Catt.Typing.Weak.html#119" class="Bound">r</a> <a id="121" class="Symbol">=</a> <a id="123" href="Data.Empty.html#895" class="Function">⊥</a>
+<a id="73" class="Keyword">open</a> <a id="78" class="Keyword">import</a> <a id="85" href="Catt.Prelude.html" class="Module">Catt.Prelude</a>
 
-<a id="126" class="Keyword">open</a> <a id="131" class="Keyword">import</a> <a id="138" href="Catt.Typing.html" class="Module">Catt.Typing</a> <a id="150" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a> <a id="161" class="Keyword">public</a>
+<a id="Weak-Rules"></a><a id="99" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a> <a id="110" class="Symbol">:</a> <a id="112" href="Catt.Typing.Base.html#182" class="Function">RuleSet</a>
+<a id="120" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a> <a id="131" href="Catt.Typing.Weak.html#131" class="Bound">r</a> <a id="133" class="Symbol">=</a> <a id="135" href="Data.Empty.html#895" class="Function">⊥</a>
 
-<a id="weak-lift"></a><a id="169" href="Catt.Typing.Weak.html#169" class="Function">weak-lift</a> <a id="179" class="Symbol">:</a> <a id="181" href="Catt.Typing.Rule.html#1780" class="Function">LiftCond</a> <a id="190" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="201" href="Catt.Typing.Weak.html#169" class="Function">weak-lift</a> <a id="211" href="Catt.Typing.Weak.html#211" class="Bound">A</a> <a id="213" class="Symbol">()</a>
+<a id="138" class="Keyword">open</a> <a id="143" class="Keyword">import</a> <a id="150" href="Catt.Typing.html" class="Module">Catt.Typing</a> <a id="162" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="166" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
 
-<a id="weak-susp"></a><a id="217" href="Catt.Typing.Weak.html#217" class="Function">weak-susp</a> <a id="227" class="Symbol">:</a> <a id="229" href="Catt.Typing.Rule.html#2162" class="Function">SuspCond</a> <a id="238" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="249" href="Catt.Typing.Weak.html#217" class="Function">weak-susp</a> <a id="259" class="Symbol">()</a>
+<a id="weak-wk"></a><a id="178" href="Catt.Typing.Weak.html#178" class="Function">weak-wk</a> <a id="186" class="Symbol">:</a> <a id="188" href="Catt.Typing.Rule.html#2361" class="Function">WkCond</a> <a id="195" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="206" href="Catt.Typing.Weak.html#178" class="Function">weak-wk</a> <a id="214" href="Catt.Typing.Weak.html#214" class="Bound">A</a> <a id="216" class="Symbol">()</a>
 
-<a id="weak-sub"></a><a id="263" href="Catt.Typing.Weak.html#263" class="Function">weak-sub</a> <a id="272" class="Symbol">:</a> <a id="274" href="Catt.Typing.Rule.html#3848" class="Function">SubCond</a> <a id="282" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="293" href="Catt.Typing.Weak.html#263" class="Function">weak-sub</a> <a id="302" href="Catt.Typing.Weak.html#302" class="Bound">Γ</a> <a id="304" href="Catt.Typing.Weak.html#304" class="Bound">σ</a> <a id="306" class="Symbol">()</a>
+<a id="weak-susp"></a><a id="220" href="Catt.Typing.Weak.html#220" class="Function">weak-susp</a> <a id="230" class="Symbol">:</a> <a id="232" href="Catt.Typing.Rule.html#2727" class="Function">SuspCond</a> <a id="241" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="252" href="Catt.Typing.Weak.html#220" class="Function">weak-susp</a> <a id="262" class="Symbol">()</a>
 
-<a id="310" class="Keyword">open</a> <a id="315" href="Catt.Typing.Rule.html#4029" class="Module">Tame</a>
+<a id="weak-sub"></a><a id="266" href="Catt.Typing.Weak.html#266" class="Function">weak-sub</a> <a id="275" class="Symbol">:</a> <a id="277" href="Catt.Typing.Rule.html#4499" class="Function">SubCond</a> <a id="285" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="289" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="300" href="Catt.Typing.Weak.html#266" class="Function">weak-sub</a> <a id="309" href="Catt.Typing.Weak.html#309" class="Bound">Γ</a> <a id="311" href="Catt.Typing.Weak.html#311" class="Bound">σ</a> <a id="313" class="Symbol">()</a>
 
-<a id="weak-tame"></a><a id="321" href="Catt.Typing.Weak.html#321" class="Function">weak-tame</a> <a id="331" class="Symbol">:</a> <a id="333" href="Catt.Typing.Rule.html#4029" class="Record">Tame</a> <a id="338" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="349" href="Catt.Typing.Weak.html#321" class="Function">weak-tame</a> <a id="359" class="Symbol">.</a><a id="360" href="Catt.Typing.Rule.html#4073" class="Field">lift-cond</a> <a id="370" class="Symbol">=</a> <a id="372" href="Catt.Typing.Weak.html#169" class="Function">weak-lift</a>
-<a id="382" href="Catt.Typing.Weak.html#321" class="Function">weak-tame</a> <a id="392" class="Symbol">.</a><a id="393" href="Catt.Typing.Rule.html#4101" class="Field">susp-cond</a> <a id="403" class="Symbol">=</a> <a id="405" href="Catt.Typing.Weak.html#217" class="Function">weak-susp</a>
-<a id="415" href="Catt.Typing.Weak.html#321" class="Function">weak-tame</a> <a id="425" class="Symbol">.</a><a id="426" href="Catt.Typing.Rule.html#4129" class="Field">sub-cond</a> <a id="435" class="Symbol">=</a> <a id="437" href="Catt.Typing.Weak.html#263" class="Function">weak-sub</a>
+<a id="317" class="Keyword">open</a> <a id="322" href="Catt.Typing.Rule.html#4692" class="Module">Tame</a>
 
-<a id="weak-conv"></a><a id="447" href="Catt.Typing.Weak.html#447" class="Function">weak-conv</a> <a id="457" class="Symbol">:</a> <a id="459" href="Catt.Typing.Rule.html#3901" class="Function">ConvCond</a> <a id="468" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="479" href="Catt.Typing.Weak.html#447" class="Function">weak-conv</a> <a id="489" class="Symbol">()</a>
+<a id="weak-tame"></a><a id="328" href="Catt.Typing.Weak.html#328" class="Function">weak-tame</a> <a id="338" class="Symbol">:</a> <a id="340" class="Symbol">(</a><a id="341" href="Catt.Typing.Weak.html#341" class="Bound">tame</a> <a id="346" class="Symbol">:</a> <a id="348" href="Catt.Typing.Rule.html#2264" class="Record">TameOp</a> <a id="355" href="Catt.Typing.Weak.html#56" class="Bound">ops</a><a id="358" class="Symbol">)</a> <a id="360" class="Symbol">→</a> <a id="362" href="Catt.Typing.Rule.html#4692" class="Record">Tame</a> <a id="367" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="371" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="382" href="Catt.Typing.Weak.html#328" class="Function">weak-tame</a> <a id="392" href="Catt.Typing.Weak.html#392" class="Bound">tame</a> <a id="397" class="Symbol">.</a><a id="398" href="Catt.Typing.Rule.html#4740" class="Field">tame-op</a> <a id="406" class="Symbol">=</a> <a id="408" href="Catt.Typing.Weak.html#392" class="Bound">tame</a>
+<a id="413" href="Catt.Typing.Weak.html#328" class="Function">weak-tame</a> <a id="423" href="Catt.Typing.Weak.html#423" class="Bound">tame</a> <a id="428" class="Symbol">.</a><a id="429" href="Catt.Typing.Rule.html#4767" class="Field">wk-cond</a> <a id="437" class="Symbol">=</a> <a id="439" href="Catt.Typing.Weak.html#178" class="Function">weak-wk</a>
+<a id="447" href="Catt.Typing.Weak.html#328" class="Function">weak-tame</a> <a id="457" href="Catt.Typing.Weak.html#457" class="Bound">tame</a> <a id="462" class="Symbol">.</a><a id="463" href="Catt.Typing.Rule.html#4793" class="Field">susp-cond</a> <a id="473" class="Symbol">=</a> <a id="475" href="Catt.Typing.Weak.html#220" class="Function">weak-susp</a>
+<a id="485" href="Catt.Typing.Weak.html#328" class="Function">weak-tame</a> <a id="495" href="Catt.Typing.Weak.html#495" class="Bound">tame</a> <a id="500" class="Symbol">.</a><a id="501" href="Catt.Typing.Rule.html#4823" class="Field">sub-cond</a> <a id="510" class="Symbol">=</a> <a id="512" href="Catt.Typing.Weak.html#266" class="Function">weak-sub</a>
 
-<a id="weak-supp"></a><a id="493" href="Catt.Typing.Weak.html#493" class="Function">weak-supp</a> <a id="503" class="Symbol">:</a> <a id="505" href="Catt.Typing.Rule.html#3957" class="Function">SupportCond</a> <a id="517" href="Catt.Typing.Weak.html#87" class="Function">Weak-Rules</a>
-<a id="528" href="Catt.Typing.Weak.html#493" class="Function">weak-supp</a> <a id="538" class="Symbol">()</a>
+<a id="weak-conv"></a><a id="522" href="Catt.Typing.Weak.html#522" class="Function">weak-conv</a> <a id="532" class="Symbol">:</a> <a id="534" href="Catt.Typing.Rule.html#4556" class="Function">ConvCond</a> <a id="543" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="547" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="558" href="Catt.Typing.Weak.html#522" class="Function">weak-conv</a> <a id="568" class="Symbol">()</a>
+
+<a id="weak-supp"></a><a id="572" href="Catt.Typing.Weak.html#572" class="Function">weak-supp</a> <a id="582" class="Symbol">:</a> <a id="584" href="Catt.Typing.Rule.html#4616" class="Function">SupportCond</a> <a id="596" href="Catt.Typing.Weak.html#56" class="Bound">ops</a> <a id="600" href="Catt.Typing.Weak.html#99" class="Function">Weak-Rules</a>
+<a id="611" href="Catt.Typing.Weak.html#572" class="Function">weak-supp</a> <a id="621" class="Symbol">()</a>
 </pre></body></html>
