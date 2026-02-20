@@ -8,6 +8,15 @@
       )
     ),
   ),
+  "Quantum Orchestras": (
+    talk: (
+      where: "Birmingham theory group seminar",
+      date: datetime(day: 13, month: 2, year: 2026),
+      links: (
+        slides: "talks/brum-talk.pdf"
+      )
+    )
+  ),
   "Quantum Circuits are Just a Phase": (
     paper: (
       published: "POPL 2026",
