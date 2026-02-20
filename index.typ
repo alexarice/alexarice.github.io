@@ -97,7 +97,7 @@ include ice skating/ice hockey and playing cello in orchestras.
 #let posts = (
   (
     title: [The Kavvos-Sojakova proof of Syllepsis in Agda],
-    link: "Syllepsis/index.html",
+    link: "/Syllepsis",
     date: datetime(day: 11, month: 8, year: 2022)
   ),
   (
@@ -107,12 +107,12 @@ include ice skating/ice hockey and playing cello in orchestras.
   ),
   (
     title: [Strictly Associative Group Theory using Univalence],
-    link: "https://prooftheory.blog/2020/10/01/linear-inferences-of-size-7/",
+    link: "/GroupsUF",
     date: datetime(day: 29, month: 05, year: 2020)
   ),
   (
     title: [Strictly Associative Group Theory],
-    link: "posts/strict-group-theory.html",
+    link: "/Groups",
     date: datetime(day: 26, month: 3, year: 2020)
   )
 ).sorted(key: x => x.date).rev()
