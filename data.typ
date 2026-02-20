@@ -107,7 +107,7 @@
       links: (
         pdf: "pub/inverses.pdf",
         arxiv: "https://arxiv.org/abs/2008.10307",
-        formalisation: "pub/inverses/Everything.html",
+        formalisation: "/Inverses",
         github: "https://github.com/alexarice/Inverses"
       )
     ),
