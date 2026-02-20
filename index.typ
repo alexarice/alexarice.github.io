@@ -97,7 +97,7 @@ include ice skating/ice hockey and playing cello in orchestras.
 #let posts = (
   (
     title: [The Kavvos-Sojakova proof of Syllepsis in Agda],
-    link: "posts/syllepsis.html",
+    link: "Syllepsis/index.html",
     date: datetime(day: 11, month: 8, year: 2022)
   ),
   (
