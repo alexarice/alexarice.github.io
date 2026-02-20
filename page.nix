@@ -14,9 +14,9 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    mkdir -p $out/css
+    mkdir -p $out
     cp index.html $out
-    cp css/*.css $out/css
+    cp css $out -r
     cp poster $out -r
     cp pub $out -r
     cp talks $out -r
