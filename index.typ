@@ -1,6 +1,6 @@
 #import "./data.typ": *
 
-#html.link(rel: "stylesheet", href: "style.css")
+#html.link(rel: "stylesheet", href: "/css/style.css")
 
 #title("Alex Rice")
 
