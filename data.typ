@@ -27,13 +27,22 @@
       )
     ),
     talk: (
-      where: "POPL 2026",
-      date: datetime(day: 16, month: 1, year: 2026),
-      links: (
-        slides: "talks/phase.pdf",
-        recording: "https://www.youtube.com/watch?v=7y9QGVMHp48",
+      (
+        where: "POPL 2026",
+        date: datetime(day: 16, month: 1, year: 2026),
+        links: (
+          slides: "talks/phase.pdf",
+          recording: "https://www.youtube.com/watch?v=7y9QGVMHp48",
+        )
+      ),
+      (
+        where: "Unitary Foundation Quantum Wednesday",
+        date: datetime(day: 23, month: 2, year: 2026),
+        links: (
+          slides: "talks/phase-uf.pdf",
+        )
       )
-    )
+    ),
   ),
   "A Syntax for Strictly Associative and Unital ∞-Categories": (
     paper: (
