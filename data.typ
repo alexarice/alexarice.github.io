@@ -37,7 +37,7 @@
       ),
       (
         where: "Unitary Foundation Quantum Wednesday",
-        date: datetime(day: 23, month: 2, year: 2026),
+        date: datetime(day: 25, month: 2, year: 2026),
         links: (
           slides: "talks/phase-uf.pdf",
         )
