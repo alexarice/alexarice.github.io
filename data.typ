@@ -40,6 +40,7 @@
         date: datetime(day: 25, month: 2, year: 2026),
         links: (
           slides: "talks/phase-uf.pdf",
+          recording: "https://www.youtube.com/watch?v=2CyW4uWU9CE"
         )
       )
     ),
