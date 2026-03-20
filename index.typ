@@ -56,6 +56,17 @@ include ice skating/ice hockey and playing cello in orchestras.
   [)]
 }
 
+#let render-coauthors(coauthors) = {
+  if coauthors.len() == 0 { return }
+  [ with ]
+  coauthors.push("and " + coauthors.pop())
+  if coauthors.len() <= 2 {
+    coauthors.join(" ")
+  } else {
+    coauthors.join(", ")
+  }
+}
+
 = Thesis
 #for (title, data) in projects.pairs().filter(v => "thesis" in v.at(1)) [
   My thesis "#title", was submitted on #data.thesis.date.display("[day]th [month repr:long] [year]") #render-links(data.thesis.links)
@@ -67,8 +78,9 @@ include ice skating/ice hockey and playing cello in orchestras.
 #for (name, data) in projects {
   let paper = data.at("paper", default: ())
   if type(paper) != array { paper = (paper,) }
+  let coauthors = data.at("coauthor", default: ())
   if paper.len() != 0 [
-    - #name#for x in paper [#if "published" in x [, #x.published] #render-links(x.links)]
+    - #name#render-coauthors(coauthors)#for x in paper [#if "published" in x [, #x.published] #render-links(x.links)]
   ]
 }
 

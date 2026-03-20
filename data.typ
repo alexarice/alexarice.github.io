@@ -18,6 +18,11 @@
     )
   ),
   "Quantum Circuits are Just a Phase": (
+    coauthor: (
+      "Chris Heunen",
+      "Christopher McNally",
+      "Louis Lemonnier"
+    ),
     paper: (
       published: "POPL 2026",
       links: (
@@ -48,6 +53,7 @@
   "A Syntax for Strictly Associative and Unital ∞-Categories": (
     paper: (
       published: "LICS 2024",
+      coauthor: "Eric Finster and Jamie Vicary",
       links: (
         pdf: "pub/sua.pdf",
         arxiv: "https://arxiv.org/abs/2302.05303",
@@ -65,6 +71,7 @@
   "A Type Theory for Strictly Unital ∞-Categories": (
     paper: (
       published: "LICS 2022",
+      coauthor: "Eric Finster, David Reutter, and Jamie Vicary",
       links: (
         pdf: "pub/strict-units.pdf",
         arxiv: "https://arxiv.org/abs/2007.08307",
@@ -98,6 +105,7 @@
     paper: (
       (
         published: "extended version in LMCS",
+        coauthor: "Anupam Das",
         links: (
           pdf: "pub/lin-inf-extended.pdf",
           arxiv: "https://arxiv.org/abs/2111.05209",
