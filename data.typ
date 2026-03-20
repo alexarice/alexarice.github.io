@@ -94,6 +94,10 @@
     )
   ),
   "A Type Theory for Strictly Associative Infinity Categories": (
+    coauthor: (
+      "Eric Finster",
+      "Jamie Vicary",
+    ),
     paper: (
       links: (
         pdf: "pub/strict-assoc.pdf",
