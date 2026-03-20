@@ -80,7 +80,7 @@ include ice skating/ice hockey and playing cello in orchestras.
   if type(paper) != array { paper = (paper,) }
   let coauthors = data.at("coauthor", default: ())
   if paper.len() != 0 [
-    - #name#render-coauthors(coauthors)#for x in paper [#if "published" in x [, #x.published] #render-links(x.links)]
+    - "#name"#render-coauthors(coauthors)#for x in paper [#if "published" in x [, #x.published] #render-links(x.links)]
   ]
 }
 
