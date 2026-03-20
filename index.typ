@@ -75,7 +75,8 @@ include ice skating/ice hockey and playing cello in orchestras.
 
 = Papers
 
-#for (name, data) in projects {
+#for (_, data) in projects {
+  let name = data.at("title")
   let paper = data.at("paper", default: ())
   if type(paper) != array { paper = (paper,) }
   let coauthors = data.at("coauthor", default: ())

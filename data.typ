@@ -1,5 +1,6 @@
 #let projects = (
-  "A type-theoretic approach to semistrict higher categories": (
+  thesis: (
+    title: "A type-theoretic approach to semistrict higher categories",
     thesis: (
       date: datetime(day: 18, month: 4, year: 2024),
       links: (
@@ -8,7 +9,8 @@
       )
     ),
   ),
-  "Quantum Orchestras": (
+  orchestras: (
+    title: "Quantum Orchestras",
     talk: (
       where: "Birmingham theory group seminar",
       date: datetime(day: 13, month: 2, year: 2026),
@@ -17,7 +19,8 @@
       )
     )
   ),
-  "Quantum Circuits are Just a Phase": (
+  phase: (
+    title: "Quantum Circuits are Just a Phase",
     coauthor: (
       "Chris Heunen",
       "Christopher McNally",
@@ -50,7 +53,8 @@
       )
     ),
   ),
-  "A Syntax for Strictly Associative and Unital ∞-Categories": (
+  catt-sua: (
+    title: "A Syntax for Strictly Associative and Unital ∞-Categories",
     coauthor: (
       "Eric Finster",
       "Jamie Vicary",
@@ -71,7 +75,8 @@
       )
     )
   ),
-  "A Type Theory for Strictly Unital ∞-Categories": (
+  catt-su: (
+    title: "A Type Theory for Strictly Unital ∞-Categories",
     coauthor: (
       "Eric Finster",
       "David Reutter",
@@ -93,7 +98,8 @@
       )
     )
   ),
-  "A Type Theory for Strictly Associative Infinity Categories": (
+  cattsa: (
+    title: "A Type Theory for Strictly Associative Infinity Categories",
     coauthor: (
       "Eric Finster",
       "Jamie Vicary",
@@ -112,7 +118,8 @@
       )
     )
   ),
-  "New minimal linear inferences in Boolean logic independent of switch and medial": (
+  lin-inf: (
+    title: "New minimal linear inferences in Boolean logic independent of switch and medial",
     coauthor: ("Anupam Das", ),
     paper: (
       (
@@ -140,7 +147,8 @@
       )
     )
   ),
-  "Coinductive Invertibility in Higher Categories": (
+  coinductive-invert: (
+    title: "Coinductive Invertibility in Higher Categories",
     paper: (
       links: (
         pdf: "pub/inverses.pdf",
@@ -157,7 +165,8 @@
       )
     )
   ),
-  "Mutability in Quantum Programming": (
+  mutability: (
+    title: "Mutability in Quantum Programming",
     poster: (
       where: "PlanQC 2026",
       links: (
@@ -166,7 +175,8 @@
       )
     ),
   ),
-  "Implementing a Typechecker for an Esoteric Language: Experiences, Challenges, and Lessons": (
+  eso-typecheck: (
+    title: "Implementing a Typechecker for an Esoteric Language: Experiences, Challenges, and Lessons",
     talk: (
       where: "TYPES 2025",
       date: datetime(day: 12, month: 06, year: 2025),
@@ -175,7 +185,8 @@
       )
     )
   ),
-  "sd-visualiser: Interactive graph visualisation for SSA-based IRs": (
+  sd-vis: (
+    title: "sd-visualiser: Interactive graph visualisation for SSA-based IRs",
     talk: (
       where: "EuroLLVM 2025",
       date: datetime(day: 16, month: 4, year: 2025),
@@ -184,7 +195,8 @@
       )
     )
   ),
-  "Defining and verifying MLIR operation with constraints": (
+  mlir-constraint: (
+    title: "Defining and verifying MLIR operation with constraints",
     talk: (
       where: "EuroLLVM 2025",
       date: datetime(day: 16, month: 4, year: 2025),
@@ -193,7 +205,8 @@
       )
     )
   ),
-  "Strictly Associative Group Theory using Univalence": (
+  groups-uf: (
+    title: "Strictly Associative Group Theory using Univalence",
     talk: (
       where: "HoTT/UF 2023",
       date: datetime(day: 22, month: 4, year: 2023),
@@ -202,7 +215,8 @@
       )
     )
   ),
-  "Type theoretic approaches to semistrict higher categories": (
+  yamcats: (
+    title: "Type theoretic approaches to semistrict higher categories",
     talk: (
       where: "YAMCATS 27",
       date: datetime(day: 12, month: 5, year: 2022),
@@ -211,7 +225,8 @@
       )
     )
   ),
-  "Biased composition in infinity categories": (
+  biased: (
+    title: "Biased composition in infinity categories",
     talk: (
       (
         where: "Categories and Companions Symposium",
