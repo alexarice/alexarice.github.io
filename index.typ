@@ -31,6 +31,8 @@ Vicary].
   [Orcid], [#link("https://orcid.org/0000-0002-2698-5122")[0000-0002-2698-5122]]
 )
 
+Please see my #link("cv.pdf")[CV] if you are interested in hiring me.
+
 = About Me
 
 I am generally interested at the moment in all things related to
@@ -48,23 +50,13 @@ include ice skating/ice hockey and playing cello in orchestras.
 
 
 #let render-links(dict) = {
+  if dict.len() == 0 { return }
   [(]
   dict.pairs().map(v => {
     let (key, value) = v;
     link(value, key)
   }).join(", ")
   [)]
-}
-
-#let render-coauthors(coauthors) = {
-  if coauthors.len() == 0 { return }
-  [ with ]
-  coauthors.push("and " + coauthors.pop())
-  if coauthors.len() <= 2 {
-    coauthors.join(" ")
-  } else {
-    coauthors.join(", ")
-  }
 }
 
 = Thesis
@@ -77,28 +69,49 @@ include ice skating/ice hockey and playing cello in orchestras.
 
 #for (_, data) in projects {
   let name = data.at("title")
-  let paper = data.at("paper", default: ())
-  if type(paper) != array { paper = (paper,) }
+  let paper = data.at("paper", default: (:))
   let coauthors = data.at("coauthor", default: ())
   if paper.len() != 0 [
-    - "#name"#render-coauthors(coauthors)#for x in paper [#if "published" in x [, #x.published] #render-links(x.links)]
+    - "#name"#render-coauthors(coauthors)#{
+      if "preprint" in paper {
+        [ ]
+        render-links(paper.preprint.links)
+      }
+      let desc = "conference" in paper and "journal" in paper
+      if "journal" in paper {
+        [, ]
+        if desc [extended version in ]
+        paper.journal.published
+        [ ]
+        render-links(paper.journal.links)
+      }
+      if "conference" in paper {
+        [, ]
+        if desc [original version at ]
+        paper.conference.published
+        [ ]
+        paper.conference.year
+        [ ]
+        render-links(paper.conference.links)
+      }
+    }
   ]
 }
 
 = Posters
 
-#for (name, data) in projects {
+#for data in projects.values() {
   if "poster" in data [
-    - #name, #data.poster.where #render-links(data.poster.links)
+    - #data.title, #data.poster.where #render-links(data.poster.links)
   ]
 }
 
 = Talks
 
-#let talks = projects.pairs().map(v => {
-  let t = v.at(1).at("talk", default: ());
+#let talks = projects.values().map(v => {
+  let t = v.at("talk", default: ());
   if type(t) != array { t = (t,) }
-  t.map(x => (name: v.at(0), ..x))
+  t.map(x => (name: v.title, ..x))
 }).flatten().sorted(key: x => x.date).rev()
 
 #for t in talks [
@@ -136,13 +149,14 @@ include ice skating/ice hockey and playing cello in orchestras.
 
 = Teaching
 
+- Guest lecturer for "Introduction to Quantum Programming and Semantics" (Spring 2026)
 - Guest lecturer for "Advanced Topics in Category Theory" (Spring 2024)
 - Supervisor for "Prolog" (Spring 2021, Spring 2022, and Spring 2023)
 - Supervisor for "Introduction to Probability" (Summer 2021)
 - Supervisor for "Object Oriented Programming" (Autumn 2021)
 - Supervisor for "Semantics of Programming Languages" (Autumn 2020)
+- Teaching assistant for "Logic and Computation" (Spring 2020)
 - Teaching assistant for "Advanced Functional Programming" (Autumn 2019)
-- Teaching assistant for "Logic and Computation" (Spring 2019)
 
 = Events
 

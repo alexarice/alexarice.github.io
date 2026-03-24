@@ -1,3 +1,14 @@
+#let render-coauthors(coauthors) = {
+  if coauthors.len() == 0 { return }
+  [ with ]
+  if coauthors.len() > 1 { coauthors.push("and " + coauthors.pop()) }
+  if coauthors.len() <= 2 {
+    coauthors.join(" ")
+  } else {
+    coauthors.join(", ")
+  }
+}
+
 #let projects = (
   thesis: (
     title: "A type-theoretic approach to semistrict higher categories",
@@ -27,16 +38,19 @@
       "Louis Lemonnier"
     ),
     paper: (
-      published: "POPL 2026",
-      links: (
-        pdf: "pub/phase.pdf",
-        arxiv: "https://arxiv.org/abs/2507.11676",
-        doi: "https://dl.acm.org/doi/10.1145/3776731",
+      conference: (
+        published: "POPL",
+        year: "2026",
+        links: (
+          pdf: "pub/phase.pdf",
+          arxiv: "https://arxiv.org/abs/2507.11676",
+          doi: "https://dl.acm.org/doi/10.1145/3776731",
+        )
       )
     ),
     talk: (
       (
-        where: "POPL 2026",
+        where: "POPL",
         date: datetime(day: 16, month: 1, year: 2026),
         links: (
           slides: "talks/phase.pdf",
@@ -60,15 +74,18 @@
       "Jamie Vicary",
     ),
     paper: (
-      published: "LICS 2024",
-      links: (
-        pdf: "pub/sua.pdf",
-        arxiv: "https://arxiv.org/abs/2302.05303",
-        doi: "https://dl.acm.org/doi/10.1145/3661814.3662102",
+      conference: (
+        published: "LICS",
+        year: "2024",
+        links: (
+          pdf: "pub/sua.pdf",
+          arxiv: "https://arxiv.org/abs/2302.05303",
+          doi: "https://dl.acm.org/doi/10.1145/3661814.3662102",
+        )
       )
     ),
     talk: (
-      where: "LICS 2024",
+      where: "LICS",
       date: datetime(day: 8, month: 7, year: 2024),
       links: (
         slides: "talk/sua.pdf"
@@ -83,31 +100,36 @@
       "Jamie Vicary",
     ),
     paper: (
-      published: "LICS 2022",
-      links: (
-        pdf: "pub/strict-units.pdf",
-        arxiv: "https://arxiv.org/abs/2007.08307",
-        doi: "https://dl.acm.org/doi/10.1145/3531130.3533363"
+      conference: (
+        published: "LICS",
+        year: "2022",
+        links: (
+          pdf: "pub/strict-units.pdf",
+          arxiv: "https://arxiv.org/abs/2007.08307",
+          doi: "https://dl.acm.org/doi/10.1145/3531130.3533363"
+        )
       )
     ),
     talk: (
-      where: "LICS 2022",
+      where: "LICS",
       date: datetime(day: 2, month: 8, year: 2022),
       links: (
         slides: "talks/strict-units.pdf"
       )
     )
   ),
-  cattsa: (
+  catt-sa: (
     title: "A Type Theory for Strictly Associative Infinity Categories",
     coauthor: (
       "Eric Finster",
       "Jamie Vicary",
     ),
     paper: (
-      links: (
-        pdf: "pub/strict-assoc.pdf",
-        arxiv: "https://arxiv.org/abs/2109.01513"
+      preprint: (
+        links: (
+          pdf: "pub/strict-assoc.pdf",
+          arxiv: "https://arxiv.org/abs/2109.01513"
+        )
       )
     ),
     talk: (
@@ -122,16 +144,18 @@
     title: "New minimal linear inferences in Boolean logic independent of switch and medial",
     coauthor: ("Anupam Das", ),
     paper: (
-      (
-        published: "extended version in LMCS",
+      journal: (
+        published: "LMCS",
+        year: "2023",
         links: (
           pdf: "pub/lin-inf-extended.pdf",
           arxiv: "https://arxiv.org/abs/2111.05209",
           lmcs: "https://lmcs.episciences.org/11337"
         )
       ),
-      (
-        published: "original version at FSCD 2021",
+      conference: (
+        published: "FSCD",
+        year: "2021",
         links: (
           pdf: "pub/linear-inf.pdf",
           link: "https://drops.dagstuhl.de/opus/volltexte/2021/14252/"
@@ -139,7 +163,7 @@
       )
     ),
     talk: (
-      where: "FSCD 2021",
+      where: "FSCD",
       date: datetime(day: 22, month: 7, year: 2021),
       links: (
         slides: "talks/linear-inf-talk.pdf",
@@ -150,11 +174,13 @@
   coinductive-invert: (
     title: "Coinductive Invertibility in Higher Categories",
     paper: (
-      links: (
-        pdf: "pub/inverses.pdf",
-        arxiv: "https://arxiv.org/abs/2008.10307",
-        formalisation: "/Inverses",
-        github: "https://github.com/alexarice/Inverses"
+      preprint: (
+        links: (
+          pdf: "pub/inverses.pdf",
+          arxiv: "https://arxiv.org/abs/2008.10307",
+          formalisation: "/Inverses",
+          github: "https://github.com/alexarice/Inverses"
+        )
       )
     ),
     talk: (
@@ -176,9 +202,9 @@
     ),
   ),
   eso-typecheck: (
-    title: "Implementing a Typechecker for an Esoteric Language: Experiences, Challenges, and Lessons",
+    title: "Implementing a Typechecker for an Esoteric Language",
     talk: (
-      where: "TYPES 2025",
+      where: "TYPES",
       date: datetime(day: 12, month: 06, year: 2025),
       links: (
         slides: "talks/catt-nbe.pdf"
@@ -188,7 +214,7 @@
   sd-vis: (
     title: "sd-visualiser: Interactive graph visualisation for SSA-based IRs",
     talk: (
-      where: "EuroLLVM 2025",
+      where: "EuroLLVM",
       date: datetime(day: 16, month: 4, year: 2025),
       links: (
         slides: "talks/sd-talk.pdf"
@@ -198,7 +224,7 @@
   mlir-constraint: (
     title: "Defining and verifying MLIR operation with constraints",
     talk: (
-      where: "EuroLLVM 2025",
+      where: "EuroLLVM",
       date: datetime(day: 16, month: 4, year: 2025),
       links: (
         slides: "talks/mlir-ops.pdf"
@@ -208,7 +234,7 @@
   groups-uf: (
     title: "Strictly Associative Group Theory using Univalence",
     talk: (
-      where: "HoTT/UF 2023",
+      where: "HoTT/UF",
       date: datetime(day: 22, month: 4, year: 2023),
       links: (
         slides: "talks/sgtuf.pdf"
