@@ -126,7 +126,7 @@
 #resume-entry(
   title: [Teaching Assistant],
   location: [University of Birmingham],
-  date: "2020",
+  date: "2019-2020",
   description: [Ran classes for "Advanced Functional Programming" and "Logic and Computation"]
 )
 

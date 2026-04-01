@@ -34,8 +34,8 @@
     title: "Quantum Circuits are Just a Phase",
     coauthor: (
       "Chris Heunen",
-      "Christopher McNally",
-      "Louis Lemonnier"
+      "Louis Lemonnier",
+      "Christopher McNally"
     ),
     paper: (
       conference: (
