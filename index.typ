@@ -60,9 +60,8 @@ include ice skating/ice hockey and playing cello in orchestras.
 }
 
 = Thesis
-#for (title, data) in projects.pairs().filter(v => "thesis" in v.at(1)) [
-  My thesis "#title", was submitted on #data.thesis.date.display("[day]th [month repr:long] [year]") #render-links(data.thesis.links)
-]
+#let thesis = project.thesis
+My thesis "#thesis.title", was submitted on #thesis.date.display("[day]th [month repr:long] [year]") #render-links(thesis.links)
 
 
 = Papers
