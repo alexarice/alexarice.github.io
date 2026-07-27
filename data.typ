@@ -21,12 +21,41 @@
     ),
   ),
   orchestras: (
-    title: "Quantum Orchestras",
+    title: "Quantum Orchestras: a Concrete Semantics for Recursive Hybrid Programs",
+    coauthor: (
+      "Dominik Leichtle",
+      "Kim Worrall",
+      "Robert I. Booth",
+    ),
     talk: (
       where: "Birmingham theory group seminar",
       date: datetime(day: 13, month: 2, year: 2026),
       links: (
         slides: "talks/brum-talk.pdf"
+      )
+    ),
+    paper: (
+      preprint: (
+        links: (
+          pdf: "pub/orchestras.pdf",
+          arxiv: "https://arxiv.org/abs/2607.09605",
+        )
+      )
+    )
+  ),
+  instruments: (
+    title: "Composing Quantum Instruments",
+    coauthor: (
+      "Robert I. Booth",
+      "Dominik Leichtle",
+      "Kim Worrall"
+    ),
+    paper: (
+      preprint: (
+        links: (
+          pdf: "pub/instruments.pdf",
+          arxiv: "https://arxiv.org/abs/2606.28291",
+        )
       )
     )
   ),

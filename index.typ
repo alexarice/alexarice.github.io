@@ -60,8 +60,8 @@ include ice skating/ice hockey and playing cello in orchestras.
 }
 
 = Thesis
-#let thesis = project.thesis
-My thesis "#thesis.title", was submitted on #thesis.date.display("[day]th [month repr:long] [year]") #render-links(thesis.links)
+#let thesis = projects.thesis
+My thesis "#thesis.title", was submitted on #thesis.thesis.date.display("[day]th [month repr:long] [year]") #render-links(thesis.thesis.links)
 
 
 = Papers
@@ -70,7 +70,7 @@ My thesis "#thesis.title", was submitted on #thesis.date.display("[day]th [month
   let name = data.at("title")
   let paper = data.at("paper", default: (:))
   let coauthors = data.at("coauthor", default: ())
-  if paper.len() != 0 [
+  if "journal" in paper or "conference" in paper [
     - "#name"#render-coauthors(coauthors)#{
       if "preprint" in paper {
         [ ]
@@ -94,6 +94,17 @@ My thesis "#thesis.title", was submitted on #thesis.date.display("[day]th [month
         render-links(paper.conference.links)
       }
     }
+  ]
+}
+
+= Preprints
+
+#for (_, data) in projects {
+  let name = data.at("title")
+  let paper = data.at("paper", default: (:))
+  let coauthors = data.at("coauthor", default: ())
+  if paper.keys() == ("preprint",) [
+    - "#name"#render-coauthors(coauthors) #render-links(paper.preprint.links)
   ]
 }
 
@@ -161,6 +172,7 @@ My thesis "#thesis.title", was submitted on #thesis.date.display("[day]th [month
 
 I have attended the following events:
 
+- #link("https://spli.scot/spls/meetings/2026/june/")[SPLS 10th June], which I organised.
 - #link("https://spli.scot/spls/meetings/2026/february/")[SPLS 11th February]
 - #link("https://popl26.sigplan.org/")[POPL 2026], where I chaired the "Functional Programming" session.
 - #link("https://popl26.sigplan.org/home/planqc-2026")[PlanQC 2026]
