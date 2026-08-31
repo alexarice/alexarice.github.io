@@ -20,6 +20,20 @@
       )
     ),
   ),
+  dyn-gate: (
+    title: "A Dynamic Intermediate Representation for Hybrid Quantum-Classical Programs",
+    coauthor: (
+      "Chris Heunen",
+      "Tobias Grosser",
+    ),
+    paper: (
+      preprint: (
+        links: (
+          pdf: "pub/dyn-gate.pdf"
+        )
+      )
+    )
+  ),
   orchestras: (
     title: "Quantum Orchestras: a Concrete Semantics for Recursive Hybrid Programs",
     coauthor: (
